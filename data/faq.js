@@ -4,7 +4,7 @@ export const SOURCES = {
   web: { tone: "ok", label: "Website MB Life" },
   slide: { tone: "ok", label: "Slide đào tạo MB Life" },
   webinar: { tone: "ok", label: "Webinar 11/11" },
-  conf: { tone: "ok", label: "Xác nhận 12/11" },
+  conf: { tone: "ok", label: "Đã xác nhận" },
   wait: { tone: "warn", label: "Chờ MB Life" },
 };
 
@@ -27,7 +27,7 @@ export const FAQ = [
     { id: "mua-cho-nguoi-than", q: "Mua cho bố mẹ, con, người thân được không?", a: "Hoàn toàn được theo quy tắc sản phẩm. Tuy nhiên, quá trình đăng ký online yêu cầu quét khuôn mặt xác thực cả người mua lẫn người được bảo hiểm nên hai người bắt buộc phải ngồi cùng một chỗ khi thao tác.", src: "conf", k: "mua cho bo me con nguoi than ho" },
     { id: "thanh-toan", q: "Thanh toán bằng gì?", a: "Hệ thống chỉ hỗ trợ chuyển khoản ngân hàng qua mã QR. Hiện chưa áp dụng thanh toán bằng thẻ tín dụng/ghi nợ hay các loại ví điện tử.", src: "webinar", k: "thanh toan qr the vi" },
     { id: "benh-nen", q: "Có bệnh nền thì sao?", a: "Khách hàng cần kê khai đúng tình trạng sức khỏe. Dựa trên hồ sơ khai báo, MB Life có thể chấp nhận bảo hiểm bình thường, áp dụng loại trừ riêng bệnh nền đó hoặc từ chối cấp hợp đồng. Publisher tuyệt đối không khai thay khách.", src: "webinar", k: "benh nen huyet ap tieu duong" },
-    { id: "nghe-nghiep", q: "Nghề nào không mua được?", a: "Hệ thống đăng ký có giới hạn một số nhóm nghề nghiệp đặc thù. Danh sách ngành nghề chi tiết đang chờ MB Life cung cấp, hiện tại bạn chưa nên khẳng định chắc chắn với khách.", src: "wait", k: "nghe nghiep chan" },
+    { id: "nghe-nghiep", q: "Nghề nào không mua được?", a: "Không có ngành nghề nào bị cấm mua. Hệ thống đăng ký không giới hạn theo nghề nghiệp, khách thuộc ngành nào cũng kê khai và mua bình thường.", src: "conf", k: "nghe nghiep chan" },
     { id: "doi-y", q: "Khách đổi ý sau khi thanh toán?", a: "Nếu khách yêu cầu hủy trước thời điểm MB Life chính thức chấp nhận bảo hiểm và phát hành hợp đồng, khách sẽ được hoàn lại toàn bộ số phí đã đóng.", src: "webinar", k: "huy hoan phi doi y" },
   ]},
   { group: "Bồi thường", items: [

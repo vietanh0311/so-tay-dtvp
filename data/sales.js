@@ -53,7 +53,7 @@ Link đăng ký: [dán link ACCESSTRADE của bạn]`;
 export const BUY_STEPS = [
   { group: "Xem phí", title: "Nhập ngày sinh, xem phí", tip: "Điền đúng ngày sinh của người được bảo hiểm (từ 6-60 tuổi)." },
   { group: "Xem phí", title: "Chọn Tiêu chuẩn hoặc Nâng cao", tip: "Mỗi người chỉ được chọn 1 trong 2 bản." },
-  { group: "Kê khai", title: "Chọn nghề nghiệp", tip: "Hệ thống sẽ chặn một số nhóm nghề nhất định. Danh sách chi tiết đang chờ MB Life cập nhật." },
+  { group: "Kê khai", title: "Chọn nghề nghiệp", tip: "Hệ thống không giới hạn theo nghề nghiệp, khách chọn đúng nghề đang làm là được." },
   { group: "Kê khai", title: "Trả lời câu hỏi BHYT", tip: "Khách bắt buộc phải có thẻ BHYT còn hiệu lực, nếu không có hệ thống sẽ dừng lại." },
   { group: "Kê khai", title: "Khai sức khỏe và FATCA", tip: "Khách tự đọc và khai trung thực. Nếu có bệnh nền, MB Life có thể chấp nhận, loại trừ bệnh đó hoặc từ chối bảo hiểm. Không khai hộ, không xúi khách giấu bệnh.", hot: true },
   { group: "Định danh", title: "Chụp CCCD 2 mặt, điền liên hệ", tip: "Hệ thống tự quét thông tin từ ảnh chụp. Nếu nhận diện sai ký tự nào, khách cần sửa lại bằng tay trước khi qua bước sau." },
