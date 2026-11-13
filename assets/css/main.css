@@ -189,11 +189,6 @@ h1 span{color:var(--pink)}
 .video-card:hover .video-card__play{transform:translate(-50%,-50%) scale(1.07);background:var(--pink-hover)}
 .video-card__badge{position:absolute;left:14px;bottom:14px;background:rgba(0,55,122,.85);color:#fff;font-size:12.5px;font-weight:600;padding:5px 12px;border-radius:999px;backdrop-filter:blur(4px)}
 
-/* banner ảnh trên đầu section 2 gói */
-.plans-banner{width:100%;aspect-ratio:16/6;border-radius:var(--media-radius);overflow:hidden;background:var(--sky-soft);border:var(--media-border);margin-bottom:4px}
-.plans-banner img{width:100%;height:100%;object-fit:cover;display:block}
-@media (max-width:720px){.plans-banner{aspect-ratio:16/9}}
-
 /* lưới tài liệu dạng ảnh (kho ấn phẩm MB Life cho CTV tải về) */
 .media-grid{display:grid;grid-template-columns:1fr;gap:16px}
 @media (min-width:768px){.media-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}}
