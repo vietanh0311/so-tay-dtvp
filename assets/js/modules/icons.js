@@ -10,6 +10,7 @@ const P = {
   play: '<rect x="3" y="5" width="18" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/>',
   shield: '<path d="M12 3 5 6v6c0 4 3 7 7 9 4-2 7-5 7-9V6z"/><path d="M12 9v6M9 12h6"/>',
   hospital: '<path d="M4 21V8l8-4 8 4v13z"/><path d="M12 9v6M9 12h6M10 21v-3h4v3"/>',
+  zalo: '<path d="M4 5h16v11H9l-5 4z"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/>',
 };
 export function icon(name) {
   const p = P[name];
