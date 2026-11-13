@@ -51,7 +51,7 @@ $("#compare-note").textContent = COMPARE.note;
 /* ---------- onboarding ---------- */
 const done = new Set(store.get("dtvp-check", []));
 $("#checklist").innerHTML = ONBOARDING.map((c) => `
-  <li><label for="${c.id}"><input type="checkbox" id="${c.id}" ${done.has(c.id) ? "checked" : ""}><span>${esc(c.text)}${c.href ? ` <a href="${c.href}">Xem</a>` : ""}</span></label></li>`).join("");
+  <li><label for="${c.id}"><input type="checkbox" id="${c.id}" ${done.has(c.id) ? "checked" : ""}><span>${esc(c.text)}${c.href ? ` <a href="${c.href}"${c.href.startsWith("http") ? ` target="_blank" rel="noopener"` : ""}>${c.linkLabel || "Xem"}</a>` : ""}</span></label></li>`).join("");
 const boxes = $$("#checklist input");
 const updateProg = () => {
   const n = boxes.filter((b) => b.checked).length;

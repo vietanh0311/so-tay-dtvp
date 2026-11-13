@@ -1,7 +1,7 @@
 // Luồng bán 6 bước. Câu mẫu dựa trên slide đào tạo MB Life và webinar 11/11.
 
 export const ONBOARDING = [
-  { id: "c1", text: "Đăng ký chiến dịch trên ACCESSTRADE và tạo link bán. Nên tách riêng sub-id cho từng kênh (Facebook, Zalo, group, website) để dễ đo hiệu quả." },
+  { id: "c1", text: "Đăng ký chiến dịch trên ACCESSTRADE và tạo link bán. Chưa có tài khoản pub2 thì đăng ký trước. Nên tách riêng sub-id cho từng kênh (Facebook, Zalo, group, website) để dễ đo hiệu quả.", href: "https://workspace.accesstrade.vn/authentication/register?lang=en&utm_source=mblife", linkLabel: "Đăng ký tài khoản" },
   { id: "c2", text: "Đọc kỹ mục Sản phẩm, nhớ nằm lòng 4 điều kiện: nằm nội trú, viện công, có thẻ BHYT và đủ thời gian chờ.", href: "#san-pham" },
   { id: "c3", text: "Tự bấm vào link của mình, nhập ngày sinh để xem phí và đi thử tới bước khai sức khỏe (chưa cần thanh toán) cho quen giao diện." },
   { id: "c4", text: "Copy sẵn mẫu tin nhắn chuẩn bị trước khi mua, lưu vào ghi chú điện thoại để tiện gửi khách.", href: "#mua-online" },

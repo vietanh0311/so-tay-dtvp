@@ -50,7 +50,7 @@ export function initCalculator() {
       <div class="cbar ${cls}">
         <span class="cbar__label">${label}</span>
         <span class="cbar__track"><span class="cbar__fill" style="width:${(Math.max(0, self) / max) * 100}%"></span></span>
-        <span class="cbar__val">${fmt(self)}<small>${paid == null ? "khách tự trả" : "MB Life trả " + fmt(paid)}</small></span>
+        <span class="cbar__val ${self <= 0.05 ? "cbar__val--ok" : "cbar__val--self"}">${fmt(self)}<small>${paid == null ? "khách tự trả" : "MB Life trả " + fmt(paid)}</small></span>
       </div>`;
     out.innerHTML =
       row("", "Chỉ có BHYT", r.selfOnly) +

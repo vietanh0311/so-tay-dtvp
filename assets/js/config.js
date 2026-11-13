@@ -1,6 +1,6 @@
 // Điền giá trị thật trước khi đưa lên
 export const CONFIG = {
-  campaignUrl: "#", // link đăng ký chiến dịch trên ACCESSTRADE
+  campaignUrl: "https://pub2.accesstrade.vn/campaign-v2/B%E1%BA%A3o%20hi%E1%BB%83m%20MB%20Life%20-%20CPS%20Website--7041410167338139054", // link đăng ký chiến dịch trên ACCESSTRADE (pub2)
   supportLabel: "Account ACCESSTRADE phụ trách chiến dịch", // kênh nhận câu hỏi mới
   lastUpdated: "13/11/2026",
   status: "", // để trống khi đã duyệt
