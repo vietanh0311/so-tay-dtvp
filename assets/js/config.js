@@ -2,8 +2,8 @@
 export const CONFIG = {
   campaignUrl: "#", // link đăng ký chiến dịch trên ACCESSTRADE
   supportLabel: "Account ACCESSTRADE phụ trách chiến dịch", // kênh nhận câu hỏi mới
-  lastUpdated: "12/11/2026",
-  status: "Bản nháp, đang chờ MB Life duyệt", // để trống khi đã duyệt
+  lastUpdated: "13/11/2026",
+  status: "", // để trống khi đã duyệt
   hotline: "(024) 222 9 8888", // theo brochure, chờ MB Life xác nhận
   // Video giới thiệu MBLIFE - ĐIỂM TỰA VIỆN PHÍ.mp4, trong thư mục Tài liệu Drive (100MB, không host local).
   // Khi có bản .mp4 nhẹ hơn (nén <12MB) để tự host, đổi productVideoUrl sang đường dẫn file đó.
