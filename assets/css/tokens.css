@@ -1,0 +1,48 @@
+/* Bố cục: trang dài một cột trên điện thoại, 2 cột ở hero và các nhóm thẻ trên máy tính; họ màu theo landing Điểm Tựa Viện Phí */
+:root {
+  color-scheme: light;
+
+  --navy: #00377A;
+  --navy-deep: #00244F;
+  --pink: #DD0071;
+  --pink-hover: #B80060;
+  --pink-tint: #FCE8F1;
+  --pink-lite: #FFA6CD;
+  --blue-tint: #EDF1FD;
+  --sky: #5BC5F2;
+
+  --ink: #101523;
+  --muted: #4E5670;
+  --muted-2: #6B7590;
+  --outer: #E7EBF3;
+  --page: #F6F8F8;
+  --card: #FFFFFF;
+  --line: #E8EAEE;
+  --line-2: #CDD1DB;
+
+  --ok: #1E7A58;
+  --ok-bg: #EAF7F1;
+  --warn: #7A4A00;
+  --warn-bg: #FFF3CD;
+  --danger: #C42B1C;
+  --danger-bg: #FEF0EE;
+
+  --r-tag: 8px;
+  --r-ctrl: 14px;
+  --r-card: 20px;
+  --r-lg: 28px;
+
+  --shadow-card: 0 1px 2px rgba(16, 21, 35, .04), 0 8px 24px rgba(0, 55, 122, .06);
+  --shadow-pink: 0 6px 18px rgba(221, 0, 113, .28);
+
+  --f-ui: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --f-num: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --gutter: max(16px, env(safe-area-inset-left, 0px));
+  --gutter-r: max(16px, env(safe-area-inset-right, 0px));
+  --maxw: 1120px;
+
+  --sky-soft: #E8F2FE;
+  --media-radius: 20px;
+  --media-border: 1px solid rgba(0, 55, 122, 0.08);
+}

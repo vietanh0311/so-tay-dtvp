@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sổ tay bán hàng Điểm Tựa Viện Phí</title>
+<meta name="description" content="Cẩm nang dành cho publisher và CTV ACCESSTRADE bán bảo hiểm Điểm Tựa Viện Phí: từ cách chào khách, hướng dẫn mua online, xử lý từ chối đến quy tắc truyền thông và tài liệu bán hàng.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Roboto+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="assets/css/tokens.css">
+<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar__in">
+    <a class="brand" href="#top" aria-label="Về đầu trang">
+      <span class="brand-logos">
+        <img class="media-img" src="assets/img/logo-mblife.png" alt="MB Life" width="80" height="26">
+        <span class="brand-logos__sep" aria-hidden="true"></span>
+        <img class="media-img" src="assets/img/logo-accesstrade.png" alt="ACCESSTRADE" width="80" height="26">
+      </span>
+      <span class="brand__text"><b>Sổ tay bán hàng</b> Điểm Tựa Viện Phí</span>
+    </a>
+    <nav class="topnav" aria-label="Mục chính">
+      <a href="#san-pham">Sản phẩm</a>
+      <a href="#luong-ban">Luồng bán</a>
+      <a href="#kich-ban">Kịch bản</a>
+      <a href="#hoi-dap">Hỏi đáp</a>
+      <a href="#hoa-hong">Hoa hồng</a>
+    </nav>
+    <a class="btn btn--pink btn--sm" id="cta-campaign" href="#" target="_blank" rel="noopener">Lấy link bán</a>
+  </div>
+</header>
+
+<div class="customer-notice">
+  <div class="customer-notice__in">
+    <span>Không phải publisher hay CTV? Chỉ muốn mua Điểm Tựa Viện Phí cho mình hoặc người nhà?</span>
+    <a id="customer-buy-link" href="#" target="_blank" rel="noopener">Mua trực tiếp tại đây →</a>
+  </div>
+</div>
+
+<div class="hero" id="top">
+  <div class="hero__in hero__in--with-art">
+    <svg class="hero__watermark" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+      <path d="M100 8 L180 38 V96 C180 146 146 180 100 194 C54 180 20 146 20 96 V38 Z" fill="none" stroke="currentColor" stroke-width="5"/>
+      <path d="M100 66 V126 M70 96 H130" stroke="currentColor" stroke-width="7" stroke-linecap="round"/>
+    </svg>
+    <div class="hero__copy">
+      <span class="pill" id="status-pill"></span>
+      <p class="eyebrow">Sổ tay bán hàng Điểm Tựa Viện Phí · Dành riêng cho publisher và CTV ACCESSTRADE</p>
+      <h1>Hãy tạm gác lại<br>những gì bạn từng biết về <span>bảo hiểm sức khỏe</span></h1>
+      <p class="hero__lead"><b>Điểm Tựa Viện Phí không thay thế BHYT.</b> Đây là lớp bảo vệ thứ hai đứng sau BHYT, giúp trả nốt phần viện phí còn lại khi khách nằm nội trú ở bệnh viện công lập. Phí chỉ từ 310.000đ/năm.</p>
+
+      <div class="searchbox">
+        <span class="searchbox__icon" data-icon="search" aria-hidden="true"></span>
+        <input id="q" type="search" placeholder="Khách đang hỏi gì? VD: viện tư, bệnh nền" autocomplete="off" aria-label="Tìm câu hỏi hoặc kịch bản">
+      </div>
+      <div class="chips" id="quick">
+        <button class="chip" data-q="có BHYT rồi">Có BHYT rồi</button>
+        <button class="chip" data-q="viện tư">Viện tư</button>
+        <button class="chip" data-q="bệnh nền">Bệnh nền</button>
+        <button class="chip" data-q="mua cho con">Mua cho người nhà</button>
+        <button class="chip" data-q="thời gian chờ">Thời gian chờ</button>
+      </div>
+    </div>
+    <div class="hero__art">
+      <img class="hero__photo media-img" src="assets/img/hero-family-clean.webp" alt="Gia đình khách hàng được Điểm Tựa Viện Phí bảo vệ sau BHYT">
+      <div id="bill"></div>
+    </div>
+  </div>
+  <div class="hero__results" id="results" hidden></div>
+  <div class="stats" id="stats"></div>
+  <p class="src stats__src">Nguồn số liệu BHYT: BHXH Việt Nam, trích từ slide đào tạo của MB Life.</p>
+</div>
+
+<main class="page">
+
+  <section id="tinh-vien-phi" class="sec">
+    <div class="sec__head">
+      <p class="eyebrow">Vì sao sản phẩm này khác biệt so với thị trường và đáng bán</p>
+      <h2>Khi nằm viện, khách phải tự trả bao nhiêu?</h2>
+      <p class="sec__lead">Tính thử chi phí nằm viện của khách hàng để hiểu và tư vấn kĩ hơn với khách.</p>
+    </div>
+    <div class="card calc">
+      <div class="calc__fields">
+        <label for="in-scope">Chi phí trong phạm vi BHYT<span class="unit">triệu</span><input id="in-scope" type="number" min="0" step="0.1" value="150" inputmode="decimal"></label>
+        <label for="rate">Mức hưởng BHYT<select id="rate"><option value="0.8" selected>80%</option><option value="0.95">95%</option><option value="1">100%</option></select></label>
+        <label for="out-scope">Chi phí ngoài phạm vi BHYT<span class="unit">triệu</span><input id="out-scope" type="number" min="0" step="0.1" value="60" inputmode="decimal"></label>
+      </div>
+      <div class="toggles">
+        <label class="switch" for="bhn"><input type="checkbox" id="bhn" checked><span></span>Thuộc danh mục 60 bệnh hiểm nghèo</label>
+        <label class="switch" for="room"><input type="checkbox" id="room"><span></span>Nằm phòng nâng cao</label>
+      </div>
+      <div class="calc__out" id="calc-out"></div>
+      <p class="src">Bảng tính dùng để minh họa khi tư vấn, chưa phải mức bồi thường cam kết. Giả định khách đi đúng tuyến, nằm viện công và đã qua thời gian chờ. Công thức đang chờ MB Life xác nhận chính thức.</p>
+    </div>
+    <p class="bridge">Thấy rõ nỗi lo viện phí của khách rồi - giờ xem sản phẩm này khác gì bảo hiểm sức khỏe thông thường. <a href="#khac-gi">Xem tiếp ↓</a></p>
+  </section>
+
+  <section id="khac-gi" class="sec">
+    <div class="sec__head">
+      <p class="eyebrow">Đừng tư vấn nhầm</p>
+      <h2>Khác gì với bảo hiểm sức khỏe khác?</h2>
+      <p class="sec__lead">Sản phẩm này không đứng độc lập để thay BHYT. Nó là lớp chi trả nối tiếp sau BHYT - nếu khách chưa có BHYT, gói này không thể kích hoạt.</p>
+    </div>
+    <div class="card">
+      <div class="scroll">
+        <table class="tbl" id="compare">
+          <tr><th>Tiêu chí</th><th>Bảo hiểm sức khỏe thông thường</th><th>Điểm Tựa Viện Phí</th></tr>
+        </table>
+      </div>
+      <p class="src" id="compare-note"></p>
+    </div>
+    <p class="bridge">Hiểu đúng sản phẩm rồi - vậy publisher nhận được gì khi bán đúng? <a href="#hoa-hong">Xem tiếp ↓</a></p>
+  </section>
+
+  <section id="hoa-hong" class="sec">
+    <div class="sec__head">
+      <p class="eyebrow">Quyền lợi publisher</p>
+      <h2>Hoa hồng và điều kiện ghi nhận</h2>
+    </div>
+    <div class="grid2">
+      <div class="card comm">
+        <p class="comm__big">17-20%</p>
+        <p class="muted">tính trên phí bảo hiểm thực thu năm đầu của mỗi hợp đồng</p>
+        <div class="scroll"><table class="tbl" id="comm-table"></table></div>
+      </div>
+      <div class="card">
+        <h3 class="card__title">Đơn được ghi nhận khi đủ 3 bước</h3>
+        <ol class="numlist" id="record"></ol>
+        <p class="muted small">Các đơn chạy quảng cáo vi phạm quy định từ khóa tìm kiếm sẽ bị loại khi đối soát. Nếu kênh có nhiều lượt click nhưng ít đơn, khả năng cao khách bị kẹt ở bước khai sức khỏe, quét mặt hoặc thanh toán - bạn kiểm tra lại sub-id kênh đó để tối ưu hướng dẫn.</p>
+      </div>
+    </div>
+    <p class="bridge">Nắm rõ mức hoa hồng rồi - giờ bắt tay làm quen trong 15 phút. <a href="#bat-dau">Xem tiếp ↓</a></p>
+  </section>
+
+  <section id="bat-dau" class="sec">
+    <div class="sec__head">
+      <p class="eyebrow">Dành cho người mới</p>
+      <h2>Bắt đầu trong 15 phút</h2>
+      <p class="sec__lead">Làm lần lượt 6 việc dưới đây trước khi nhắn tin chào khách đầu tiên. Trình duyệt tự lưu lại các mục bạn đã tick trên thiết bị này.</p>
+    </div>
+    <div class="card onboard">
+      <div class="onboard__bar"><span id="prog-bar"></span></div>
+      <p class="onboard__count" id="prog">Đã xong 0/6</p>
+      <ul class="check" id="checklist"></ul>
+    </div>
+  </section>
+
+  <section id="san-pham" class="sec">
+    <div class="sec__head">
+      <p class="eyebrow">Hiểu sản phẩm trong 3 phút</p>
+      <h2>Viết thành hai phiên bản khác nhau phù hợp với nhu cầu khách hàng</h2>
+      <p class="sec__lead">Khi nằm viện nội trú, người có thẻ BHYT vẫn phải tự trả khoản đồng chi trả (thường là 20% với mức hưởng 80%) cùng các loại thuốc, vật tư ngoài danh mục BHYT. Số liệu từ Cục Thống kê năm 2022 cho thấy chi phí tự trả bình quân cho một đợt nội trú là 1,2 triệu ở tuyến xã và lên tới 16,1 triệu ở tuyến trung ương.</p>
+    </div>
+    <button class="video-card" id="product-video" type="button" aria-label="Xem video giới thiệu Điểm Tựa Viện Phí">
+      <img class="media-img" src="assets/img/video-poster.webp" alt="Video giới thiệu Điểm Tựa Viện Phí">
+      <span class="video-card__play" aria-hidden="true"><span data-icon="play"></span></span>
+      <span class="video-card__badge">Video giới thiệu · MB Life</span>
+    </button>
+    <div class="plans-banner"><img class="media-img" src="assets/img/plans-banner.webp" alt="Một điểm tựa, hai lựa chọn bảo vệ"></div>
+    <div class="plans" id="plans"></div>
+
+    <div class="card pricer">
+      <div class="pricer__head">
+        <h3>Chọn độ tuổi người được bảo hiểm</h3>
+        <p class="muted">Xem ngay mức phí năm đầu và hoa hồng ước tính của bạn</p>
+      </div>
+      <div class="ages" id="ages" role="radiogroup" aria-label="Nhóm tuổi"></div>
+      <div class="pricer__out" id="pricer-out"></div>
+      <p class="src">Nguồn: biểu phí từ slide đào tạo của MB Life. Độ tuổi 61-65 chỉ áp dụng cho hợp đồng tái tục. Hoa hồng tính theo mức 17-20% phí thực thu năm đầu.</p>
+    </div>
+
+    <h3 class="subhead">Thời gian chờ (tính từ ngày hợp đồng bắt đầu có hiệu lực)</h3>
+    <div class="waits" id="waits"></div>
+    <p class="muted small">Từ năm thứ 2 tái tục trở đi, hợp đồng không còn áp dụng thời gian chờ.</p>
+
+    <h3 class="subhead">Điều kiện tham gia</h3>
+    <div class="grid2" id="eligible"></div>
+  </section>
+
+  <section id="luong-ban" class="sec">
+    <div class="sec__head">
+      <p class="eyebrow">Từ lúc mở lời đến khi ra hợp đồng</p>
+      <h2>Luồng bán 6 bước</h2>
+      <p class="sec__lead">Phần lớn khách hàng chưa từng nghe qua dòng sản phẩm này, vì vậy đừng vội báo giá ngay từ đầu. Hãy hỏi về thẻ BHYT trước để khách tự hình dung ra khoản tiền mình phải bù thêm khi đi viện.</p>
+    </div>
+    <div class="flow">
+      <ol class="flow__tabs" id="flow-tabs" role="tablist"></ol>
+      <div class="card flow__panel" id="flow-panel" role="tabpanel"></div>
+    </div>
+  </section>
+
+  <section id="mua-online" class="sec">
+    <div class="sec__head">
+      <p class="eyebrow">Khách tự thao tác qua link của bạn</p>
+      <h2>Hướng dẫn khách mua online</h2>
+      <p class="sec__lead">Publisher chỉ gửi link và hướng dẫn từ xa, tuyệt đối không điền hộ, không khai sức khỏe thay và không thu tiền của khách. Ba bước tô hồng bên dưới là những điểm khách dễ bỏ dở nhất, đặc biệt là nhóm khách trên 50 tuổi.</p>
+    </div>
+    <div class="buy">
+      <div class="card card--tint" id="prep"></div>
+      <ol class="timeline" id="buy-steps"></ol>
+    </div>
+    <div class="card note">
+      <h3>Lưu ý khi mua cho người nhà</h3>
+      <p>Quy tắc sản phẩm cho phép người mua khác với người được bảo hiểm, chẳng hạn bố mẹ đứng tên mua cho con từ 6-17 tuổi. Tuy nhiên, luồng đăng ký online bắt buộc quét khuôn mặt xác thực của cả hai người, nên người mua và người được bảo hiểm cần ngồi cạnh nhau khi thao tác. Nếu hai người đang ở xa nhau, mỗi người tự đăng ký trên máy riêng sẽ thuận tiện hơn.</p>
+    </div>
+  </section>
+
+  <section id="kich-ban" class="sec">
+    <div class="sec__head">
+      <p class="eyebrow">Xử lý băn khoăn</p>
+      <h2>Khách nói gì, mình đáp gì</h2>
+      <p class="sec__lead">Mỗi tình huống đều phân tích tâm lý đằng sau câu nói của khách, kèm câu trả lời mẫu để copy và những câu tuyệt đối không được nói.</p>
+    </div>
+    <div class="chips chips--filter" id="obj-filter" role="tablist"></div>
+    <div class="objs" id="objections"></div>
+  </section>
+
+  <section id="hoi-dap" class="sec">
+    <div class="sec__head">
+      <p class="eyebrow">Tra cứu nhanh</p>
+      <h2>Hỏi đáp</h2>
+      <p class="sec__lead">Nhãn đính kèm bên cạnh mỗi câu trả lời cho biết nguồn thông tin. Những câu gắn nhãn "Chờ MB Life" nghĩa là chưa có xác nhận cuối cùng, bạn chưa nên trả lời chắc chắn với khách.</p>
+    </div>
+    <div class="chips chips--filter" id="faq-filter" role="tablist"></div>
+    <div class="faq" id="faq"></div>
+    <div class="card ask">
+      <div>
+        <h3>Khách hỏi câu lạ chưa có trong sổ tay?</h3>
+        <p class="muted" id="ask-hint"></p>
+      </div>
+      <label for="newq" class="sr">Câu hỏi của khách</label>
+      <textarea id="newq" rows="3" placeholder="VD: Khách làm tài xế xe công nghệ có mua được không?"></textarea>
+      <div><button class="btn btn--pink" id="copy-newq" type="button">Copy câu hỏi</button></div>
+    </div>
+  </section>
+
+  <section id="boi-thuong" class="sec">
+    <div class="sec__head">
+      <p class="eyebrow">Hỗ trợ sau khi khách nằm viện</p>
+      <h2>Bồi thường</h2>
+      <p class="sec__lead">Giải thích cặn kẽ các điều kiện ngay lúc tư vấn sẽ giúp khách chủ động giấy tờ và không bị bỡ ngỡ khi làm thủ tục nhận quyền lợi.</p>
+    </div>
+    <ol class="claim" id="claim"></ol>
+    <div class="card">
+      <h3 class="card__title">Các lý do khiến hồ sơ dễ bị từ chối</h3>
+      <div class="scroll"><table class="tbl" id="reject"></table></div>
+    </div>
+  </section>
+
+  <section id="quy-tac" class="sec">
+    <div class="sec__head">
+      <p class="eyebrow">Tư vấn chuẩn, giữ hoa hồng bền</p>
+      <h2>Quy tắc truyền thông</h2>
+      <p class="sec__lead">Hằng tháng, MB Life đều rà soát tỷ lệ khiếu nại liên quan đến chất lượng tư vấn. Những publisher vi phạm quy tắc truyền thông sẽ bị ngắt quyền chạy chiến dịch ngay lập tức.</p>
+    </div>
+    <div class="pairs" id="pairs"></div>
+    <div class="grid2">
+      <div class="card"><h3 class="card__title">Những nội dung cấm đăng tải</h3><ul class="dots" id="dont-post"></ul></div>
+      <div class="card"><h3 class="card__title">Quy định về quảng cáo và thương hiệu</h3><ul class="dots" id="ads-rules"></ul></div>
+    </div>
+  </section>
+
+  <section id="tai-lieu" class="sec">
+    <div class="sec__head">
+      <p class="eyebrow">Tải về và sử dụng</p>
+      <h2>Tài liệu bán hàng</h2>
+      <p class="sec__lead">Luôn gửi khách đường link ACCESSTRADE của riêng bạn. Nếu gửi trực tiếp link gốc diemtuavienphi.mblife.vn, hệ thống sẽ không thể ghi nhận đơn hàng cho bạn.</p>
+    </div>
+    <div class="mats" id="materials"></div>
+    <h3 class="subhead">Bộ ảnh và poster MB Life - tải về đăng Zalo, Facebook</h3>
+    <div class="media-grid" id="kit-images"></div>
+    <h3 class="subhead">Bài đăng mẫu gợi ý</h3>
+    <div class="grid2" id="posts"></div>
+    <p class="src">Tình huống mổ ruột thừa được lấy từ slide đào tạo của MB Life. Nếu bạn tự biên soạn bài viết mới, hãy gửi cho ACCESSTRADE duyệt trước khi đăng.</p>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="foot__in">
+    <p>Nội dung được tổng hợp từ webinar ngày 11/11/2026, bộ slide đào tạo và website sản phẩm của MB Life, phụ lục hợp tác MB Life x ACCESSTRADE cùng các thông tin xác nhận trong nhóm dự án.</p>
+    <p>Mọi quyền lợi, điều kiện và phạm vi chi trả đều căn cứ theo Quy tắc, điều khoản sản phẩm chính thức do MB Life ban hành. Tổng đài CSKH MB Life: <span id="hotline"></span></p>
+    <p id="updated"></p>
+  </div>
+</footer>
+
+<nav class="dock" aria-label="Lối tắt">
+  <a href="#hoi-dap"><span data-icon="chat"></span>Hỏi đáp</a>
+  <a href="#kich-ban"><span data-icon="script"></span>Kịch bản</a>
+  <a href="#mua-online"><span data-icon="phone"></span>Mua online</a>
+  <a href="#tinh-vien-phi"><span data-icon="calc"></span>Tính phí</a>
+</nav>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>
