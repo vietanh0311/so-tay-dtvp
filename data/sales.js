@@ -18,8 +18,8 @@ export const SALE_STEPS = [
   },
   {
     title: "Mở lời bằng câu hỏi về BHYT",
-    goal: "Khoan nhắc đến chuyện mua bán hay giá cả. Hãy đặt câu hỏi để khách tự nhẩm tính phần viện phí mình phải gánh.",
-    script: "Anh/chị đang dùng thẻ BHYT đúng không ạ? Em hỏi vui chút, nếu chẳng may phải nằm viện công hết khoảng 40 triệu, theo anh/chị thì BHYT sẽ trả bao nhiêu và mình phải tự bù bao nhiêu?",
+    goal: "Khoan nhắc đến chuyện mua bán hay giá cả. Tránh hỏi thẳng kiểu giả định khách phải nằm viện vì dễ khiến khách khó chịu. Hỏi nhẹ nhàng về mức BHYT chi trả để khách tự nhẩm ra phần mình phải bù.",
+    script: "Anh/chị đang dùng thẻ BHYT đúng không ạ? Em hỏi vui chút, anh/chị có biết đi viện công BHYT thường chi trả khoảng bao nhiêu phần trăm viện phí không ạ? Phần còn lại mình tự bù luôn đấy.",
   },
   {
     title: "Chỉ ra con số tự trả cụ thể",
@@ -55,9 +55,9 @@ export const BUY_STEPS = [
   { group: "Xem phí", title: "Chọn Tiêu chuẩn hoặc Nâng cao", tip: "Mỗi người chỉ được chọn 1 trong 2 bản." },
   { group: "Kê khai", title: "Chọn nghề nghiệp", tip: "Hệ thống không giới hạn theo nghề nghiệp, khách chọn đúng nghề đang làm là được." },
   { group: "Kê khai", title: "Trả lời câu hỏi BHYT", tip: "Khách bắt buộc phải có thẻ BHYT còn hiệu lực, nếu không có hệ thống sẽ dừng lại." },
-  { group: "Kê khai", title: "Khai sức khỏe và FATCA", tip: "Khách tự đọc và khai trung thực. Nếu có bệnh nền, MB Life có thể chấp nhận, loại trừ bệnh đó hoặc từ chối bảo hiểm. Không khai hộ, không xúi khách giấu bệnh.", hot: true },
+  { group: "Kê khai", title: "Khai sức khỏe và FATCA", tip: "Khách tự đọc và khai trung thực. Với gói Điểm Tựa Viện Phí chỉ có 2 kết quả: MB Life chấp nhận cấp hợp đồng bình thường hoặc từ chối, không có loại trừ riêng bệnh nền. Không khai hộ, không xúi khách giấu bệnh.", hot: true },
   { group: "Định danh", title: "Chụp CCCD 2 mặt, điền liên hệ", tip: "Hệ thống tự quét thông tin từ ảnh chụp. Nếu nhận diện sai ký tự nào, khách cần sửa lại bằng tay trước khi qua bước sau." },
-  { group: "Định danh", title: "Quét khuôn mặt", tip: "Cần camera rõ nét, đủ sáng, không đeo kính hay đội mũ. Nếu mua cho người thân, cả người mua và người được bảo hiểm đều phải quét khuôn mặt.", hot: true },
+  { group: "Định danh", title: "Quét khuôn mặt", tip: "Cần camera rõ nét, đủ sáng, không đeo kính hay đội mũ. Nếu mua cho người thân từ 18 tuổi trở lên, cả người mua và người được bảo hiểm đều phải ngồi cùng chỗ để quét khuôn mặt. Người được bảo hiểm 6-17 tuổi không cần quét khuôn mặt, chỉ cần tải ảnh CCCD hoặc giấy khai sinh.", hot: true },
   { group: "Thanh toán", title: "Nhập OTP", tip: "Mã xác thực gửi về số điện thoại khách vừa đăng ký." },
   { group: "Thanh toán", title: "Chuyển khoản qua mã QR", tip: "Chỉ chấp nhận quét mã QR chuyển khoản. Đơn hàng chỉ lên báo cáo sau khi MB Life xác nhận đã thu được phí.", hot: true },
 ];

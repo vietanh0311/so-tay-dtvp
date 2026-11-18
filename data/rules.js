@@ -74,6 +74,6 @@ Xem biểu phí theo tuổi tại đây: [link]` },
   { label: "Phụ huynh", text: `[Nội dung quảng cáo]
 Các bé đi học đều đã có thẻ BHYT, nhưng mỗi lần con ốm phải nhập viện, bố mẹ vẫn phải tự xoay xở khoản đồng chi trả cùng tiền thuốc ngoài danh mục.
 Đã có gói bảo hiểm y tế mở rộng dành cho trẻ từ 6 tuổi, phí chỉ từ 310k/năm, hỗ trợ trả phần viện phí còn lại sau BHYT khi con nằm điều trị nội trú ở viện công.
-Lưu ý nhỏ: khi đăng ký online cần bố hoặc mẹ ngồi cùng con để hệ thống quét khuôn mặt xác thực cả 2 người.
+Lưu ý nhỏ: khi đăng ký online cho con từ 6-17 tuổi, không cần quét khuôn mặt của con, chỉ cần tải ảnh CCCD hoặc giấy khai sinh.
 Xem biểu phí theo tuổi của bé tại đây: [link]` },
 ];
