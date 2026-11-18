@@ -22,11 +22,11 @@ export const PLANS = [
     from: 310000,
     limit: "100 triệu/năm",
     points: [
-      "Trả phần viện phí còn lại sau BHYT trong danh mục BHYT, áp dụng cho mọi bệnh khi nằm nội trú",
-      "Không áp dụng thời gian chờ với tai nạn và các năm tái tục",
-      "Dùng được tại toàn bộ cơ sở y tế công lập trên cả nước",
+      "Thanh toán phần viện phí còn lại sau BHYT (nằm trong danh mục BHYT), áp dụng cho mọi bệnh lý khi điều trị nội trú",
+      "Bảo vệ ngay đối với rủi ro tai nạn và miễn thời gian chờ cho các năm tái tục",
+      "Sử dụng tại toàn bộ hệ thống cơ sở y tế công lập trên cả nước",
     ],
-    fit: "Phù hợp với sinh viên, lao động phổ thông, người lần đầu mua bảo hiểm, ngân sách dưới 400k/năm",
+    fit: "Phù hợp với sinh viên, người lao động phổ thông, người lần đầu tìm hiểu bảo hiểm với ngân sách dưới 400k/năm",
   },
   {
     id: "adv",
@@ -36,37 +36,37 @@ export const PLANS = [
     limit: "2 tỷ/năm",
     points: [
       "Bao gồm toàn bộ quyền lợi của bản Tiêu chuẩn",
-      "Trả thêm chi phí ngoài phạm vi BHYT khi điều trị 1 trong 60 bệnh hiểm nghèo",
-      "Lưu ý: nếu điều trị bệnh hiểm nghèo mà nằm phòng nâng cao (giá giường vượt quá 150% mức BHYT), quyền lợi chỉ chi trả 30%",
+      "Chi trả thêm các khoản thuốc men, vật tư ngoài phạm vi BHYT khi điều trị 1 trong 60 bệnh hiểm nghèo",
+      "Lưu ý: Khi điều trị bệnh hiểm nghèo, nếu khách chọn nằm phòng dịch vụ nâng cao (giá giường vượt quá 150% mức BHYT), mức chi trả sẽ áp dụng tỷ lệ 30%",
     ],
-    fit: "Phù hợp với người có thu nhập ổn định, gia đình từng có tiền sử bệnh hiểm nghèo, ngân sách trên 500k/năm",
+    fit: "Phù hợp với người có thu nhập ổn định, gia đình có tiền sử bệnh hiểm nghèo, ngân sách trên 500k/năm",
   },
 ];
 
 export const WAITING = [
-  { days: "0", unit: "ngày", label: "Nằm viện do tai nạn" },
+  { days: "0", unit: "ngày", label: "Nằm viện điều trị do tai nạn" },
   { days: "30", unit: "ngày", label: "Bệnh tật, thương tích thông thường" },
   { days: "90", unit: "ngày", label: "Bệnh hiểm nghèo và 7 nhóm bệnh đặc biệt: thoát vị, u lành, lao và hen, trĩ, amidan/VA, mũi xoang, tuyến giáp" },
 ];
 
 export const ELIGIBLE = {
   yes: [
-    "Người được bảo hiểm từ 6-60 tuổi, được tái tục đến năm 65 tuổi",
-    "Người đứng tên mua và thanh toán từ 18 tuổi trở lên",
-    "Đang sở hữu thẻ BHYT còn hiệu lực",
+    "Người được bảo hiểm từ 6-60 tuổi, được quyền tái tục liên tục đến năm 65 tuổi",
+    "Người đứng tên mua và thanh toán hợp đồng từ 18 tuổi trở lên",
+    "Đang có thẻ BHYT còn hiệu lực sử dụng",
   ],
   no: [
-    "Người chưa có thẻ BHYT: hệ thống sẽ chặn ngay bước kê khai",
-    "Người trên 60 tuổi muốn tham gia mới lần đầu",
-    "Người đang trong quá trình điều trị bệnh",
-    "Khách hàng đến từ kênh đại lý bảo hiểm hoặc các trang so sánh giá bảo hiểm",
+    "Người chưa có thẻ BHYT: hệ thống sẽ tự động dừng ngay ở bước kê khai",
+    "Người trên 60 tuổi muốn đăng ký mua mới lần đầu",
+    "Người đang trong đợt nằm viện hoặc đang điều trị bệnh",
+    "Khách hàng tiếp cận từ kênh đại lý bảo hiểm truyền thống hoặc các nền tảng so sánh giá bảo hiểm",
   ],
 };
 
 // Ca chị Th. trên website MB Life
 export const BILL_CASE = {
   title: "Chị Th., 34 tuổi, nhân viên văn phòng",
-  meta: "Ung thư cổ tử cung tại BV K · đúng tuyến · đã qua 90 ngày chờ · phòng tiêu chuẩn · bản Nâng cao",
+  meta: "Điều trị Ung thư cổ tử cung tại BV K · đúng tuyến · đã qua 90 ngày chờ · nằm phòng tiêu chuẩn · tham gia bản Nâng cao",
   rows: [
     { label: "Tổng viện phí nội trú", value: 137 },
     { label: "BHYT thanh toán 80%", value: -98, sub: true },
@@ -75,40 +75,40 @@ export const BILL_CASE = {
   ],
   without: 39,
   with: 0,
-  note: "39 triệu tương đương khoảng 2,6 tháng lương của chị Th. Đây là tình huống minh họa, quyền lợi chi trả thực tế áp dụng theo Quy tắc và điều khoản sản phẩm.",
+  note: "Khoản tiền 39 triệu tự trả tương đương khoảng 2,6 tháng lương của chị Th. Đây là tình huống minh họa, quyền lợi chi trả thực tế áp dụng theo Quy tắc và điều khoản sản phẩm.",
 };
 
 export const HERO_STATS = [
-  { value: "95,2%", label: "người Việt đã sở hữu thẻ BHYT", src: "slide", icon: "shield" },
-  { value: "43%", label: "là phần tự bỏ tiền túi", src: "slide", icon: "hospital" },
-  { value: "17-20%", label: "tương đương khoảng 60k trên 1 hợp đồng thành công", icon: "calc" },
-  { value: "310k", label: "mức phí thấp nhất mỗi năm", icon: "doc" },
+  { value: "95,2%", label: "người Việt đã có thẻ BHYT", src: "slide", icon: "shield" },
+  { value: "43%", label: "là tỷ lệ viện phí người bệnh tự chi trả", src: "slide", icon: "hospital" },
+  { value: "17-20%", label: "hoa hồng ước tính khoảng 60k từ gói phí thấp nhất", icon: "calc" },
+  { value: "310k", label: "mức phí tham gia thấp nhất mỗi năm", icon: "doc" },
 ];
 
 // So sánh với bảo hiểm sức khỏe thông thường trên thị trường, không nêu tên hãng cụ thể
 // Nguồn: slide đào tạo MB Life (câu hỏi "khác gì với BHYT nhà nước") + nhận định chung của sản phẩm bảo hiểm sức khỏe trên thị trường
 export const COMPARE = {
-  note: "Nhắc lại để nhớ kỹ: đây là lớp trả sau BHYT, không thay thế BHYT. Không có thẻ BHYT thì không mua và không dùng được.",
+  note: "Điểm cốt lõi cần nhớ: Đây là gói bảo hiểm chi trả nối tiếp sau BHYT, hoàn toàn không thay thế BHYT. Khách không có thẻ BHYT sẽ không thể đăng ký và sử dụng sản phẩm này.",
   rows: [
     {
       label: "Cách hoạt động",
-      normal: "Chạy độc lập, tự tính quyền lợi riêng, không cần có BHYT",
-      dtvp: "Trả nốt phần viện phí còn lại sau khi BHYT đã thanh toán",
+      normal: "Hoạt động độc lập, tự xét duyệt quyền lợi riêng mà không cần thẻ BHYT",
+      dtvp: "Thanh toán phần viện phí còn lại sau khi BHYT đã chi trả",
     },
     {
       label: "Nơi điều trị",
-      normal: "Dùng được ở cả bệnh viện tư, bệnh viện quốc tế",
-      dtvp: "Chỉ áp dụng tại bệnh viện công lập",
+      normal: "Áp dụng tại cả bệnh viện công, bệnh viện tư và bệnh viện quốc tế",
+      dtvp: "Chỉ áp dụng khi điều trị nội trú tại cơ sở y tế công lập",
     },
     {
       label: "Điều kiện kích hoạt",
-      normal: "Không ràng buộc theo thẻ BHYT",
-      dtvp: "Phải đi đúng tuyến, thẻ BHYT còn hiệu lực, chi phí bồi thường trên 100.000đ",
+      normal: "Không phụ thuộc vào việc sử dụng thẻ BHYT",
+      dtvp: "Cần khám chữa bệnh đúng tuyến, dùng thẻ BHYT còn hiệu lực, số tiền yêu cầu bồi thường trên 100.000đ",
     },
     {
       label: "Mức phí",
-      normal: "Từ vài triệu đến vài chục triệu đồng mỗi năm",
-      dtvp: "Từ 310.000đ/năm",
+      normal: "Dao động từ vài triệu đến vài chục triệu đồng mỗi năm",
+      dtvp: "Chỉ từ 310.000đ/năm",
     },
   ],
 };

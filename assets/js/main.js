@@ -25,7 +25,7 @@ const pill = $("#status-pill");
 if (CONFIG.status) pill.textContent = `${CONFIG.status} · ${CONFIG.lastUpdated}`; else pill.remove();
 $("#hotline").textContent = CONFIG.hotline;
 $("#updated").textContent = `Cập nhật ${CONFIG.lastUpdated}`;
-$("#ask-hint").textContent = `Gõ câu hỏi vào ô dưới đây, bấm Copy rồi gửi cho ${CONFIG.supportLabel} qua nhóm Zalo hỗ trợ chiến dịch hoặc email support@accesstrade.vn. Đội ngũ ACCESSTRADE sẽ làm việc với MB Life và cập nhật câu trả lời lên sổ tay trong 24h.`;
+$("#ask-hint").textContent = `Nhập câu hỏi của khách vào ô bên dưới, bấm Copy rồi gửi cho ${CONFIG.supportLabel} qua nhóm Zalo hoặc email support@accesstrade.vn. Đội ngũ ACCESSTRADE sẽ xác minh cùng MB Life và cập nhật câu trả lời lên sổ tay trong vòng 24h.`;
 
 /* ---------- hero ---------- */
 $("#bill").innerHTML = `

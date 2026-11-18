@@ -1,45 +1,45 @@
 // Quy tắc truyền thông, bồi thường, hoa hồng, tài liệu. Nguồn: webinar 11/11, slide đào tạo MB Life.
 
 export const SAY_PAIRS = [
-  { ok: "Hỗ trợ trả phần viện phí nội trú còn lại sau khi BHYT đã thanh toán", no: "Bảo hiểm trả 100% tất cả các loại viện phí" },
-  { ok: "Chỉ áp dụng khi nằm điều trị nội trú tại bệnh viện công lập", no: "Khám ngoại trú hay nằm viện tư đều được đền" },
-  { ok: "Có quy định thời gian chờ: tai nạn 0 ngày, bệnh thường 30 ngày, bệnh hiểm nghèo 90 ngày", no: "Mua xong là được bảo vệ và nhận tiền ngay" },
-  { ok: "Bản Nâng cao trả thêm chi phí ngoài phạm vi BHYT cho 60 bệnh hiểm nghèo; nếu nằm phòng nâng cao chỉ trả 30%", no: "Không cần khai sức khỏe, chắc chắn được bồi thường" },
+  { ok: "Hỗ trợ thanh toán phần viện phí nội trú còn lại sau khi BHYT đã chi trả", no: "Bảo hiểm thanh toán hết 100% mọi khoản viện phí" },
+  { ok: "Chỉ áp dụng khi người bệnh nằm điều trị nội trú tại các cơ sở y tế công lập", no: "Đi khám ngoại trú lấy thuốc hay nằm viện tư nhân đều được thanh toán" },
+  { ok: "Sản phẩm áp dụng thời gian chờ: tai nạn 0 ngày, bệnh thông thường 30 ngày, bệnh hiểm nghèo và bệnh đặc biệt 90 ngày", no: "Vừa mua xong hôm nay thì ngày mai ốm nằm viện cũng được nhận tiền ngay" },
+  { ok: "Bản Nâng cao trả thêm chi phí ngoài phạm vi BHYT cho 60 bệnh hiểm nghèo; nếu chọn nằm phòng dịch vụ nâng cao thì mức chi trả là 30%", no: "Không cần khai báo bệnh nền, cứ nộp hồ sơ là chắc chắn được bồi thường" },
 ];
 
 export const DONT_POST = [
-  "Truyền đạt sai lệch, thổi phồng quyền lợi hoặc cố tình lờ đi các điều kiện về nội trú, viện công và thời gian chờ",
-  "Đưa ra lời hứa chắc chắn được bồi thường 100%",
-  "Đem sản phẩm ra so sánh hạ thấp hoặc nói xấu các công ty bảo hiểm khác",
-  "Viết bài gây hiểu nhầm đây là BHYT nhà nước hoặc một gói gửi tiết kiệm sinh lời",
-  "Tung tin miễn phí, giảm giá, hoàn tiền, tặng quà hiện vật hoặc chia hoa hồng cho người mua",
-  "Đứng ra khai sức khỏe hộ, giữ thông tin cá nhân hoặc thu tiền hộ khách hàng",
-  "Tự nhận mình là nhân viên, tư vấn viên chính thức của MB Life hoặc lập fanpage giả mạo thương hiệu",
-  "Đăng bài quảng bá sản phẩm nhưng không gắn nhãn nội dung quảng cáo theo quy định",
+  "Truyền thông sai lệch bản chất sản phẩm, phóng đại quyền lợi hoặc cố tình che giấu các điều kiện bắt buộc về nằm nội trú, bệnh viện công lập và thời gian chờ",
+  "Đưa ra các cam kết tuyệt đối như “chắc chắn được bồi thường”, “trả 100% viện phí”",
+  "So sánh trực diện nhằm hạ thấp uy tín hoặc bôi nhọ các doanh nghiệp bảo hiểm khác trên thị trường",
+  "Viết bài gây hiểu lầm đây là thẻ BHYT bắt buộc của nhà nước hoặc là một sản phẩm gửi tiết kiệm tích lũy sinh lời",
+  "Đăng tin tặng miễn phí, chiết khấu giảm giá, hoàn tiền (cashback), tặng quà hiện vật hoặc chia sẻ hoa hồng để lôi kéo người mua",
+  "Đứng ra điền thông tin hộ, khai báo sức khỏe thay, lưu giữ giấy tờ tùy thân hoặc nhận tiền chuyển khoản trung gian của khách hàng",
+  "Tự xưng là nhân viên chính thức hay đại lý độc quyền của MB Life; tự ý lập fanpage, tài khoản mạng xã hội mạo danh thương hiệu MB Life",
+  "Đăng tải bài viết quảng bá sản phẩm nhưng không gắn nhãn nhận diện nội dung quảng cáo theo quy định pháp luật hiện hành",
 ];
 
 export const ADS_RULES = [
-  "Cấm chạy đấu thầu các từ khóa thương hiệu gồm MB Life, MB Ageas, MB Bank, Điểm Tựa Viện Phí cùng mọi biến thể; bắt buộc cài đặt danh sách từ khóa phủ định này",
-  "Nếu chạy quảng cáo tìm kiếm, trang đích phải là trang trung gian đã được ACCESSTRADE phê duyệt",
-  "Không tự ý sử dụng tên gọi, logo MB Life khi chưa có văn bản chấp thuận; khi đăng mạng xã hội chỉ dùng bộ banner và hình ảnh gốc do ACCESSTRADE cấp",
-  "Không đặt tên fanpage, tài khoản cá nhân hay tên miền website có chứa cụm từ MB Life",
-  "Chủ động gỡ bỏ bài đăng vi phạm trong vòng 24 giờ kể từ lúc nhận thông báo yêu cầu",
-  "Mọi bài viết, hình ảnh tự thiết kế phải gửi qua ACCESSTRADE duyệt trước khi đăng công khai",
+  "Nghiêm cấm đấu thầu từ khóa thương hiệu gồm: MB Life, MB Ageas, MB Bank, Điểm Tựa Viện Phí và toàn bộ các từ khóa biến thể liên quan; bắt buộc phải thêm các cụm từ này vào danh sách từ khóa phủ định (negative keywords) khi thiết lập chiến dịch",
+  "Khi triển khai quảng cáo tìm kiếm (Search Ads), đường link đích bắt buộc phải trỏ về trang trung gian (pre-landing page) đã qua phê duyệt của ACCESSTRADE, không trỏ trực tiếp về trang mua hàng của MB Life",
+  "Không tự ý sử dụng tên thương hiệu, logo của MB Life khi chưa có văn bản đồng ý; khi đăng bài trên mạng xã hội chỉ được phép sử dụng bộ banner và hình ảnh truyền thông chuẩn do ACCESSTRADE cung cấp",
+  "Tuyệt đối không đặt tên fanpage, tên tài khoản cá nhân, hội nhóm hoặc tên miền website có chứa cụm từ “MB Life”",
+  "Có trách nhiệm gỡ bỏ hoàn toàn các bài đăng, quảng cáo vi phạm trong vòng 24 giờ kể từ thời điểm nhận được thông báo từ ACCESSTRADE",
+  "Tất cả bài viết, kịch bản video hoặc hình ảnh do publisher tự biên soạn đều phải gửi cho đội ngũ ACCESSTRADE kiểm duyệt và chấp thuận trước khi đăng tải công khai",
 ];
 
 export const CLAIM_STEPS = [
-  { title: "Chuẩn bị bộ chứng từ", text: "Gồm giấy ra viện, tóm tắt bệnh án, đơn thuốc có ghi chẩn đoán và đóng dấu bệnh viện, hóa đơn tài chính, bảng kê chi tiết viện phí và ảnh chụp thẻ BHYT. Nếu yêu cầu bồi thường lần đầu, khách cần chụp thêm ảnh lịch sử khám chữa bệnh 2 năm gần nhất trên app VNeID hoặc VssID." },
-  { title: "Nộp hồ sơ trên app MB Life Style", text: "Vào mục Giải quyết quyền lợi, tải ảnh chứng từ lên và chọn phương thức nhận tiền chuyển khoản ngay trên ứng dụng. Thời hạn nộp hồ sơ là trong vòng 1 năm kể từ đợt điều trị." },
-  { title: "Chờ nhận kết quả", text: "Hồ sơ được Công ty CP Insmart (đơn vị ủy quyền của MB Life) thẩm định và phản hồi kết quả qua SMS trong vòng 30 ngày kể từ lúc nhận đủ chứng từ." },
+  { title: "Chuẩn bị đầy đủ bộ chứng từ", text: "Bao gồm giấy ra viện, tóm tắt bệnh án, đơn thuốc (có ghi rõ chẩn đoán và đóng dấu bệnh viện), hóa đơn tài chính, bảng kê chi tiết viện phí và ảnh chụp thẻ BHYT. Lưu ý: Với lần đầu tiên gửi yêu cầu bồi thường, khách hàng cần chụp kèm màn hình lịch sử khám chữa bệnh BHYT trong 2 năm gần nhất trên ứng dụng VNeID hoặc VssID." },
+  { title: "Gửi hồ sơ trực tuyến qua ứng dụng MB Life Style", text: "Đăng nhập ứng dụng, chọn mục Giải quyết quyền lợi, tải toàn bộ ảnh chụp chứng từ lên hệ thống và điền số tài khoản ngân hàng nhận tiền. Thời hạn nộp hồ sơ tối đa là 1 năm tính từ ngày kết thúc đợt điều trị." },
+  { title: "Theo dõi và nhận kết quả thẩm định", text: "Hồ sơ sẽ do Công ty CP Insmart (đơn vị được MB Life ủy quyền) trực tiếp thẩm định và thông báo kết quả qua tin nhắn SMS trong vòng 30 ngày kể từ khi nhận đủ chứng từ hợp lệ." },
 ];
 
 export const REJECT_REASONS = [
-  ["Không phải điều trị nội trú", "Chỉ khám ngoại trú, hoặc thời gian nằm viện chưa qua 12 giờ đêm và chưa đủ 12 tiếng"],
-  ["Sai cơ sở y tế", "Điều trị tại bệnh viện tư nhân, quốc tế, bệnh viện y học cổ truyền, phục hồi chức năng hoặc tâm thần"],
-  ["Không sử dụng BHYT", "Đi khám không xuất trình thẻ BHYT, hoặc đợt điều trị đó nằm ngoài diện BHYT chi trả"],
-  ["Đi trái tuyến sai quy định", "Bệnh thông thường nhưng khách tự vượt tuyến từ cấp ban đầu lên thẳng cấp chuyên sâu"],
-  ["Chưa qua thời gian chờ", "Sự kiện xảy ra trong 30 ngày đầu với bệnh thường, hoặc 90 ngày đầu với bệnh hiểm nghèo và bệnh đặc biệt"],
-  ["Khai báo sức khỏe thiếu trung thực", "Đã mắc bệnh từ trước khi mua nhưng không kê khai hoặc khai sai sự thật"],
+  ["Không phải điều trị nội trú", "Khách hàng chỉ khám và lấy thuốc ngoại trú, hoặc thời gian lưu viện chưa qua 12 giờ đêm và tổng thời gian nằm viện chưa đủ 12 tiếng"],
+  ["Điều trị ngoài hệ thống bệnh viện công lập", "Khách hàng nằm viện tại các bệnh viện tư nhân, bệnh viện quốc tế, hoặc điều trị tại các viện y học cổ truyền, viện phục hồi chức năng, bệnh viện tâm thần"],
+  ["Không sử dụng thẻ BHYT", "Khách hàng nhập viện nhưng không xuất trình thẻ BHYT, hoặc đợt điều trị đó nằm ngoài diện BHYT chi trả"],
+  ["Tự ý vượt tuyến", "Mắc bệnh thông thường nhưng tự ý vượt tuyến từ cấp ban đầu lên thẳng bệnh viện cấp chuyên sâu"],
+  ["Chưa kết thúc thời gian chờ", "Sự kiện xảy ra khi hợp đồng vẫn đang trong thời gian chờ: 30 ngày đối với bệnh thông thường, 90 ngày đối với bệnh hiểm nghèo và 7 nhóm bệnh đặc biệt"],
+  ["Kê khai không trung thực về bệnh có sẵn", "Bệnh đã có từ trước ngày hợp đồng có hiệu lực nhưng khách hàng không khai báo hoặc khai sai trong bảng câu hỏi sức khỏe lúc đăng ký"],
   ["Sai sót về hồ sơ và mức phí", "Tổng tiền yêu cầu bồi thường từ 100.000đ trở xuống, nộp hồ sơ trễ quá 1 năm hoặc thiếu chứng từ hợp lệ"],
 ];
 
