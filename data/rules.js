@@ -29,7 +29,7 @@ export const ADS_RULES = [
 
 export const CLAIM_STEPS = [
   { title: "Chuẩn bị đầy đủ bộ chứng từ", text: "Bao gồm giấy ra viện, tóm tắt bệnh án, đơn thuốc (có ghi rõ chẩn đoán và đóng dấu bệnh viện), hóa đơn tài chính, bảng kê chi tiết viện phí và ảnh chụp thẻ BHYT. Lưu ý: Với lần đầu tiên gửi yêu cầu bồi thường, khách hàng cần chụp kèm màn hình lịch sử khám chữa bệnh BHYT trong 2 năm gần nhất trên ứng dụng VNeID hoặc VssID." },
-  { title: "Gửi hồ sơ trực tuyến qua ứng dụng MB Life Style", text: "Đăng nhập ứng dụng, chọn mục Giải quyết quyền lợi, tải toàn bộ ảnh chụp chứng từ lên hệ thống và điền số tài khoản ngân hàng nhận tiền. Thời hạn nộp hồ sơ tối đa là 1 năm tính từ ngày kết thúc đợt điều trị." },
+  { title: "Gửi hồ sơ trực tuyến qua ứng dụng MB Life Style", text: "Đăng nhập ứng dụng, chọn mục Giải quyết quyền lợi, tải toàn bộ ảnh chụp chứng từ lên hệ thống và điền số tài khoản ngân hàng nhận tiền. Thời hạn nộp hồ sơ tối đa là 1 năm kể từ ngày xảy ra sự kiện bảo hiểm." },
   { title: "Theo dõi và nhận kết quả thẩm định", text: "Hồ sơ sẽ do Công ty CP Insmart (đơn vị được MB Life ủy quyền) trực tiếp thẩm định và thông báo kết quả qua tin nhắn SMS trong vòng 30 ngày kể từ khi nhận đủ chứng từ hợp lệ." },
 ];
 
@@ -69,7 +69,7 @@ export const SAMPLE_POSTS = [
   { label: "Dân văn phòng", text: `[Nội dung quảng cáo]
 Thử làm một phép tính nhỏ: một ca mổ ruột thừa nằm viện công 15 ngày, tổng hết 15 triệu. Dù có thẻ BHYT mức hưởng 80% thì mình vẫn phải tự bỏ tiền túi khoảng 3 triệu.
 Hiện có gói bảo hiểm y tế mở rộng giúp trả nốt phần viện phí còn lại sau BHYT khi nằm điều trị nội trú ở bệnh viện công. Phí cho độ tuổi 26-30 chỉ 360k/năm (tính ra khoảng 1.000đ/ngày).
-Lưu ý nhỏ: gói chỉ áp dụng điều trị nội trú tại viện công, bệnh thông thường có thời gian chờ 30 ngày và cần có sẵn thẻ BHYT mới tham gia được.
+Lưu ý nhỏ: gói chỉ áp dụng điều trị nội trú tại viện công, bệnh thông thường có thời gian chờ 30 ngày và cần dùng thẻ BHYT còn hiệu lực trong đợt điều trị.
 Xem biểu phí theo tuổi tại đây: [link]` },
   { label: "Phụ huynh", text: `[Nội dung quảng cáo]
 Các bé đi học đều đã có thẻ BHYT, nhưng mỗi lần con ốm phải nhập viện, bố mẹ vẫn phải tự xoay xở khoản đồng chi trả cùng tiền thuốc ngoài danh mục.

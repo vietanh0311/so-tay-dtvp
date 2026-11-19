@@ -33,30 +33,49 @@ const fmt = (n) => {
 };
 
 export function initCalculator() {
-  const ids = ["in-scope", "rate", "out-scope", "bhn", "room"];
-  const el = Object.fromEntries(ids.map((id) => [id, document.getElementById(id)]));
-  const out = document.getElementById("calc-out");
+  const $id = (id) => document.getElementById(id);
+  const inScope = $id("in-scope"), rate = $id("rate"), outScope = $id("out-scope");
+  const roomQ = $id("room-q"), roomNote = $id("room-note");
+  const out = $id("calc-out");
+  const radios = [...document.querySelectorAll('input[name="disease"], input[name="room"]')];
+  const val = (name) => document.querySelector(`input[name="${name}"]:checked`)?.value;
 
   const render = () => {
-    const r = compute({
-      inScope: parseFloat(el["in-scope"].value) || 0,
-      rate: parseFloat(el.rate.value),
-      outScope: parseFloat(el["out-scope"].value) || 0,
-      critical: el.bhn.checked,
-      upgradedRoom: el.room.checked,
-    });
-    const max = Math.max(r.selfOnly, 0.0001);
-    const row = (cls, label, self, paid) => `
-      <div class="cbar ${cls}">
-        <span class="cbar__label">${label}</span>
-        <span class="cbar__track"><span class="cbar__fill" style="width:${(Math.max(0, self) / max) * 100}%"></span></span>
-        <span class="cbar__val ${self <= 0.05 ? "cbar__val--ok" : "cbar__val--self"}">${fmt(self)}<small>${paid == null ? "khách tự trả" : "MB Life trả " + fmt(paid)}</small></span>
+    const critical = val("disease") === "critical";
+    // Loại phòng chỉ có tác dụng khi điều trị bệnh hiểm nghèo ở bản Nâng cao
+    roomQ.disabled = !critical;
+    roomQ.classList.toggle("is-off", !critical);
+    roomNote.textContent = critical
+      ? "Phòng dịch vụ nâng cao là phòng có giá giường trên 150% mức BHYT trả. Nếu khách nằm phòng này khi điều trị bệnh hiểm nghèo, bản Nâng cao chỉ chi trả 30%."
+      : "Chỉ cần chọn khi khách điều trị bệnh hiểm nghèo. Với bệnh thông thường, loại phòng không làm thay đổi kết quả.";
+
+    const ins = Math.max(0, parseFloat(inScope.value) || 0);
+    const outs = Math.max(0, parseFloat(outScope.value) || 0);
+    const rt = parseFloat(rate.value);
+    const r = compute({ inScope: ins, rate: rt, outScope: outs, critical, upgradedRoom: critical && val("room") === "upgraded" });
+    const total = ins + outs;
+    const bhyt = ins * rt;
+    const pct = (n) => (total > 0 ? (Math.max(0, n) / total) * 100 : 0);
+
+    const row = (title, mb, self) => `
+      <div class="cres">
+        <div class="cres__head">
+          <span class="cres__title">${title}</span>
+          <span class="cres__self ${self <= 0.05 ? "is-zero" : ""}"><small>Khách tự trả</small>${fmt(self)}</span>
+        </div>
+        <div class="cres__bar" aria-hidden="true">
+          <span class="seg-bhyt" style="width:${pct(bhyt)}%"></span><span class="seg-mb" style="width:${pct(mb)}%"></span><span class="seg-self" style="width:${pct(self)}%"></span>
+        </div>
+        <p class="cres__detail">BHYT trả ${fmt(bhyt)}${mb == null ? "" : ` · Điểm Tựa Viện Phí trả ${fmt(mb)}`} · Khách tự trả ${fmt(self)}</p>
       </div>`;
-    out.innerHTML =
-      row("", "Chỉ có BHYT", r.selfOnly) +
-      row("cbar--std", "Có bản Tiêu chuẩn", r.selfStd, r.std) +
-      row("cbar--adv", "Có bản Nâng cao", r.selfAdv, r.adv);
+
+    out.innerHTML = `
+      <p class="calc__total">Tổng viện phí đợt điều trị: <b>${fmt(total)}</b></p>
+      <div class="calc__legend" aria-hidden="true"><span class="lg-bhyt">BHYT trả</span><span class="lg-mb">Điểm Tựa Viện Phí trả</span><span class="lg-self">Khách tự trả</span></div>
+      ${row("Chỉ có BHYT", null, r.selfOnly)}
+      ${row("Có thêm bản Tiêu chuẩn", r.std, r.selfStd)}
+      ${row("Có thêm bản Nâng cao", r.adv, r.selfAdv)}`;
   };
-  ids.forEach((id) => el[id].addEventListener("input", render));
+  [inScope, rate, outScope, ...radios].forEach((e) => { e.addEventListener("input", render); e.addEventListener("change", render); });
   render();
 }

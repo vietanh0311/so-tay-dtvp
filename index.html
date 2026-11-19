@@ -101,13 +101,26 @@
     </div>
     <div class="card calc">
       <div class="calc__fields">
-        <label for="in-scope">Chi phí trong phạm vi BHYT<span class="unit">triệu</span><input id="in-scope" type="number" min="0" step="0.1" value="150" inputmode="decimal"></label>
-        <label for="rate">Mức hưởng BHYT<select id="rate"><option value="0.8" selected>80%</option><option value="0.95">95%</option><option value="1">100%</option></select></label>
-        <label for="out-scope">Chi phí ngoài phạm vi BHYT<span class="unit">triệu</span><input id="out-scope" type="number" min="0" step="0.1" value="60" inputmode="decimal"></label>
+        <label for="in-scope">Chi phí trong phạm vi BHYT<small class="hint">Khoản BHYT xét chi trả theo mức hưởng</small><span class="field"><input id="in-scope" type="number" min="0" step="0.1" value="150" inputmode="decimal"><span class="unit">triệu</span></span></label>
+        <label for="rate">Mức hưởng BHYT<small class="hint">In trên thẻ BHYT của khách</small><select id="rate"><option value="0.8" selected>80%</option><option value="0.95">95%</option><option value="1">100%</option></select></label>
+        <label for="out-scope">Chi phí ngoài phạm vi BHYT<small class="hint">Thuốc, vật tư BHYT không trả</small><span class="field"><input id="out-scope" type="number" min="0" step="0.1" value="60" inputmode="decimal"><span class="unit">triệu</span></span></label>
       </div>
-      <div class="toggles">
-        <label class="switch" for="bhn"><input type="checkbox" id="bhn" checked><span></span>Thuộc danh mục 60 bệnh hiểm nghèo</label>
-        <label class="switch" for="room"><input type="checkbox" id="room"><span></span>Nằm phòng nâng cao</label>
+      <div class="calc__qs">
+        <fieldset class="seg">
+          <legend>Khách điều trị bệnh gì?</legend>
+          <div class="seg__opts">
+            <label><input type="radio" name="disease" value="normal"><span>Bệnh thông thường</span></label>
+            <label><input type="radio" name="disease" value="critical" checked><span>1 trong 60 bệnh hiểm nghèo</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="seg" id="room-q">
+          <legend>Khách nằm phòng nào?</legend>
+          <div class="seg__opts">
+            <label><input type="radio" name="room" value="std" checked><span>Phòng thường</span></label>
+            <label><input type="radio" name="room" value="upgraded"><span>Phòng dịch vụ nâng cao</span></label>
+          </div>
+          <p class="seg__note" id="room-note">Phòng dịch vụ nâng cao là phòng có giá giường trên 150% mức BHYT trả. Lựa chọn này chỉ ảnh hưởng bản Nâng cao khi điều trị bệnh hiểm nghèo: mức chi trả còn 30%.</p>
+        </fieldset>
       </div>
       <div class="calc__out" id="calc-out"></div>
       <p class="src">Số liệu mang tính minh họa với giả định khách điều trị nội trú đúng tuyến tại bệnh viện công lập và đã qua thời gian chờ. Số tiền chi trả thực tế căn cứ theo hóa đơn viện phí và Quy tắc, điều khoản sản phẩm của MB Life.</p>
@@ -119,7 +132,7 @@
     <div class="sec__head">
       <p class="eyebrow">Hiểu đúng bản chất để tư vấn chuẩn</p>
       <h2>Khác gì với bảo hiểm sức khỏe khác?</h2>
-      <p class="sec__lead">Điểm Tựa Viện Phí vận hành như một lớp chi trả nối tiếp phía sau thẻ BHYT. Khách bắt buộc phải có thẻ BHYT còn hiệu lực thì mới tham gia và sử dụng được quyền lợi của gói này.</p>
+      <p class="sec__lead">Điểm Tựa Viện Phí vận hành như một lớp chi trả nối tiếp phía sau thẻ BHYT. Người được bảo hiểm cần sử dụng thẻ BHYT còn hiệu lực trong đợt điều trị nội trú.</p>
     </div>
     <div class="card">
       <div class="scroll">

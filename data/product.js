@@ -22,7 +22,7 @@ export const PLANS = [
     from: 310000,
     limit: "100 triệu/năm",
     points: [
-      "Thanh toán phần viện phí còn lại sau BHYT (nằm trong danh mục BHYT), áp dụng cho mọi bệnh lý khi điều trị nội trú",
+      "Thanh toán phần viện phí còn lại sau BHYT (nằm trong danh mục BHYT), áp dụng cho bệnh lý/thương tích thông thường, trừ các trường hợp loại trừ (tham khảo Quy tắc, điều khoản sản phẩm)",
       "Bảo vệ ngay đối với rủi ro tai nạn và miễn thời gian chờ cho các năm tái tục",
       "Sử dụng tại toàn bộ hệ thống cơ sở y tế công lập trên cả nước",
     ],
@@ -53,10 +53,9 @@ export const ELIGIBLE = {
   yes: [
     "Người được bảo hiểm từ 6-60 tuổi, được quyền tái tục liên tục đến năm 65 tuổi",
     "Người đứng tên mua và thanh toán hợp đồng từ 18 tuổi trở lên",
-    "Đang có thẻ BHYT còn hiệu lực sử dụng",
+    "Không bắt buộc có thẻ BHYT lúc mua, nhưng khi điều trị nội trú cần dùng thẻ BHYT còn hiệu lực",
   ],
   no: [
-    "Người chưa có thẻ BHYT: hệ thống sẽ tự động dừng ngay ở bước kê khai",
     "Người trên 60 tuổi muốn đăng ký mua mới lần đầu",
     "Người đang trong đợt nằm viện hoặc đang điều trị bệnh",
     "Khách hàng tiếp cận từ kênh đại lý bảo hiểm truyền thống hoặc các nền tảng so sánh giá bảo hiểm",
@@ -88,7 +87,7 @@ export const HERO_STATS = [
 // So sánh với bảo hiểm sức khỏe thông thường trên thị trường, không nêu tên hãng cụ thể
 // Nguồn: slide đào tạo MB Life (câu hỏi "khác gì với BHYT nhà nước") + nhận định chung của sản phẩm bảo hiểm sức khỏe trên thị trường
 export const COMPARE = {
-  note: "Điểm cốt lõi cần nhớ: Đây là gói bảo hiểm chi trả nối tiếp sau BHYT, hoàn toàn không thay thế BHYT. Khách không có thẻ BHYT sẽ không thể đăng ký và sử dụng sản phẩm này.",
+  note: "Điểm cốt lõi cần nhớ: Đây là gói bảo hiểm chi trả nối tiếp sau BHYT, hoàn toàn không thay thế BHYT. Người được bảo hiểm cần sử dụng thẻ BHYT còn hiệu lực trong đợt điều trị nội trú thì mới được chi trả.",
   rows: [
     {
       label: "Cách hoạt động",
