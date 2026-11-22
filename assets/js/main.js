@@ -188,7 +188,9 @@ $("#product-video").addEventListener("click", (e) => {
   const card = e.currentTarget;
   if (card.dataset.playing) return;
   card.dataset.playing = "1";
-  card.innerHTML = `<iframe src="${CONFIG.productVideoUrl}" allow="autoplay" allowfullscreen title="Video giới thiệu Điểm Tựa Viện Phí"></iframe>`;
+  card.innerHTML = CONFIG.productVideoUrl.endsWith(".mp4")
+    ? `<video src="${CONFIG.productVideoUrl}" controls autoplay playsinline title="Video giới thiệu Điểm Tựa Viện Phí"></video>`
+    : `<iframe src="${CONFIG.productVideoUrl}" allow="autoplay" allowfullscreen title="Video giới thiệu Điểm Tựa Viện Phí"></iframe>`;
 });
 
 /* ---------- init ---------- */

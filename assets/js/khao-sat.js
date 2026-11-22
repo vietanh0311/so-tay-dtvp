@@ -139,12 +139,15 @@ function renderWelcome(card) {
 /* ---------- khối giới thiệu sản phẩm (Phần C) ---------- */
 function renderProductIntro(card) {
   const vid = CONFIG.surveyVideoYoutubeId;
+  const selfVideo = CONFIG.surveyVideoUrl;
   card.innerHTML = `
     <p class="eyebrow">${esc(PRODUCT_INTRO.eyebrow)}</p>
     <h2 class="ks-q" style="font-size:20px">${esc(PRODUCT_INTRO.title)}</h2>
     <p class="muted small">${esc(PRODUCT_INTRO.lead)}</p>
     ${vid
       ? `<button class="ks-video" type="button" id="ks-play" aria-label="Xem video tóm tắt"><img src="https://i3.ytimg.com/vi/${esc(vid)}/hqdefault.jpg" alt="Video tóm tắt Điểm Tựa Viện Phí"><span class="ks-video__play">${icon("play")}</span></button>`
+      : selfVideo
+      ? `<video class="ks-video" src="${esc(selfVideo)}" ${CONFIG.surveyVideoPoster ? `poster="${esc(CONFIG.surveyVideoPoster)}"` : ""} controls playsinline preload="metadata" title="Video tóm tắt Điểm Tựa Viện Phí"></video>`
       : `<div class="ks-video" style="display:grid;place-items:center;color:var(--navy);gap:6px;text-align:center;padding:16px"><span data-icon="play" style="width:40px;height:40px;opacity:.5"></span><small class="muted small">Video tóm tắt đang chuẩn bị - đọc 4 ý bên dưới nhé</small></div>`}
     <div class="ks-points">
       <ul class="dots">${PRODUCT_INTRO.points.map((p) => `<li>${esc(p)}</li>`).join("")}</ul>
