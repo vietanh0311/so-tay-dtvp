@@ -17,9 +17,16 @@ export const FEE_TABLE = {
 
 export const WELCOME = {
   chip: "Khảo sát cộng đồng",
+  image: "../assets/img/hero-family-clean.webp",
+  imageAlt: "Gia đình bốn người đứng cạnh nhau, vui vẻ trong không gian phòng khám",
+  stats: [
+    { icon: "clock", value: "3 phút", label: "Toàn câu trắc nghiệm" },
+    { icon: "gift", value: "Có quà", label: "Voucher đồ uống" },
+    { icon: "lock", value: "Không chào bán", label: "Chỉ để tổng hợp" },
+  ],
   title: 'Bạn có bao giờ thắc mắc rằng: "Nếu nằm viện có BHYT thì còn phải trả bao nhiêu?"',
   subtitle: "Chia sẻ 3 phút, nhận mã ưu đãi đồ uống",
-  body: "Chào bạn, đây là khảo sát của Cộng đồng hỗ trợ chương trình Điểm Tựa Viện Phí. Bọn mình muốn biết mọi người đang lo gì về viện phí và nghĩ gì về loại bảo hiểm bổ sung đi kèm BHYT.",
+  body: "Chào bạn, đây là khảo sát của Cộng đồng hỗ trợ triển khai chương trình Điểm Tựa Viện Phí. Bọn mình muốn biết mọi người đang lo gì về viện phí và nghĩ gì về loại bảo hiểm bổ sung đi kèm BHYT.",
   points: [
     "Toàn bộ là câu trắc nghiệm dễ, sẽ mất khoảng 3 phút, không cần gõ dài.",
     "Cộng đồng có 1 phần quà nho nhỏ là 1 số voucher đồ uống Highlands, The Coffee House, Ding Tea để cảm ơn bạn, voucher sẽ hiện ở cuối sau khi làm xong nhé.",
@@ -32,11 +39,17 @@ export const PRODUCT_INTRO = {
   eyebrow: "Trước khi trả lời tiếp",
   title: "Xem nhanh 45 giây: Điểm Tựa Viện Phí của MB Life",
   lead: "Xem video hoặc đọc nhanh 4 ý dưới đây để trả lời câu hỏi ngay sau.",
+  // sơ đồ 2 lớp chi trả, minh họa cho ý đầu tiên bên dưới (không có số liệu riêng)
+  layers: {
+    title: "Hóa đơn nằm viện nội trú",
+    first: { tag: "Lớp 1", label: "Thẻ BHYT", desc: "Trả phần của BHYT trước" },
+    second: { tag: "Lớp 2", label: "Điểm Tựa Viện Phí", desc: "MB Life xem xét, chi trả phần còn lại" },
+  },
   points: [
-    "Đi cùng thẻ BHYT: khi nằm viện, BHYT trả phần của BHYT trước, sau đó MB Life xem xét và chi trả phần chi phí điều trị nội trú còn lại theo Quy tắc, Điều khoản sản phẩm.",
-    "Phí từ 310.000đ/năm (bản Tiêu chuẩn, khoảng 850đ/ngày) và từ 535.000đ/năm (bản Nâng cao), tăng theo tuổi.",
-    "Không cần khám sức khỏe khi tham gia. Gửi yêu cầu bồi thường qua app MB Life Style.",
-    "Áp dụng tại cơ sở y tế công lập đủ tiêu chuẩn trên toàn quốc, khi dùng thẻ BHYT đúng quy định. Bản Nâng cao chi trả tối đa 2 tỷ đồng/năm với 60 bệnh hiểm nghèo theo danh mục.",
+    { icon: "layers", text: "Đi cùng thẻ BHYT: khi nằm viện, BHYT trả phần của BHYT trước, sau đó MB Life xem xét và chi trả phần chi phí điều trị nội trú còn lại theo Quy tắc, Điều khoản sản phẩm." },
+    { icon: "coin", text: "Phí từ 310.000đ/năm (bản Tiêu chuẩn, khoảng 850đ/ngày) và từ 535.000đ/năm (bản Nâng cao), tăng theo tuổi." },
+    { icon: "phone", text: "Không cần khám sức khỏe khi tham gia. Gửi yêu cầu bồi thường qua app MB Life Style." },
+    { icon: "hospital", text: "Áp dụng tại cơ sở y tế công lập đủ tiêu chuẩn trên toàn quốc, khi dùng thẻ BHYT đúng quy định. Bản Nâng cao chi trả tối đa 2 tỷ đồng/năm với 60 bệnh hiểm nghèo theo danh mục." },
   ],
   note: "Thông tin tóm tắt để tham khảo. Quyền lợi và điều kiện chi trả theo Quy tắc, Điều khoản sản phẩm do MB Life ban hành.",
   cta: "Đã xem, tiếp tục",
@@ -151,7 +164,7 @@ export const QUESTIONS = [
   // Phần D - Bước cuối trước khi lấy mã
   { id: "D1", section: "D", type: "phone", required: false,
     q: "Bọn mình đang tìm vài người để nói chuyện thêm khoảng 10 phút qua điện thoại. Cuộc gọi chỉ để nghe góp ý, không tư vấn bán hàng. Bạn có sẵn lòng không?",
-    consent: "Tôi đồng ý để Cộng đồng hỗ trợ chương trình Điểm Tựa Viện Phí (đội ACCESSTRADE) liên hệ qua số này, chỉ để phỏng vấn về khảo sát.",
+    consent: "Tôi đồng ý để Cộng đồng hỗ trợ triển khai chương trình Điểm Tựa Viện Phí (đội ACCESSTRADE) liên hệ qua số này, chỉ để phỏng vấn về khảo sát.",
     options: [{ label: "Có" }, { label: "Chưa tiện, cho mình lấy mã luôn" }] },
 ];
 
@@ -160,6 +173,14 @@ export const SECTION_LABEL = {
   B: "Phần B · Chuyện đi viện và chi phí",
   C: "Phần C · Loại bảo hiểm đi cùng BHYT",
   D: "Phần D · Bước cuối",
+};
+
+// 4 mốc trên thanh tiến độ: icon + tên ngắn
+export const SECTION_META = {
+  A: { icon: "user", short: "Về bạn" },
+  B: { icon: "hospital", short: "Đi viện" },
+  C: { icon: "shield", short: "Bảo hiểm" },
+  D: { icon: "phone", short: "Bước cuối" },
 };
 
 export const THANK_YOU = {
@@ -181,4 +202,4 @@ export const ACTION_BUTTONS = [
   { id: 4, icon: "share", label: "Giới thiệu cho người quen", desc: "Nhận hoa hồng khi người quen tham gia", url: "https://camnangdiemtuavienphi.accesstrade.work/" },
 ];
 
-export const FOOTER_NOTE = "Cộng đồng hỗ trợ chương trình Điểm Tựa Viện Phí do ACCESSTRADE vận hành. Điểm Tựa Viện Phí là sản phẩm bảo hiểm của MB Life. Thông tin khảo sát chỉ dùng để tổng hợp; số Zalo (nếu có) chỉ dùng để liên hệ phỏng vấn.";
+export const FOOTER_NOTE = "Cộng đồng hỗ trợ triển khai chương trình Điểm Tựa Viện Phí do ACCESSTRADE vận hành. Điểm Tựa Viện Phí là sản phẩm bảo hiểm của MB Life. Thông tin khảo sát chỉ dùng để tổng hợp; số Zalo (nếu có) chỉ dùng để liên hệ phỏng vấn.";

@@ -2,7 +2,7 @@ import { CONFIG } from "./config.js";
 import { $, $$, esc, vnd, store } from "./modules/util.js";
 import { icon, hydrateIcons } from "./modules/icons.js";
 import {
-  QUESTIONS, FEE_TABLE, WELCOME, PRODUCT_INTRO, SECTION_LABEL,
+  QUESTIONS, FEE_TABLE, WELCOME, PRODUCT_INTRO, SECTION_LABEL, SECTION_META,
   THANK_YOU, THANK_YOU_MINOR, ACTION_BUTTONS, FOOTER_NOTE,
 } from "../../data/khao-sat-data.js";
 
@@ -58,9 +58,17 @@ function renderProgress() {
     pct = Math.round(15 + (countable.indexOf(currentKey) / countable.length) * 85);
   }
   const sec = sectionOf(currentKey);
-  $("#ks-progress-label").textContent = sec === "end" ? "Hoàn tất" : sec ? SECTION_LABEL[sec] : "";
+  const qKeys = flow.filter((k) => QUESTION_MAP[k]);
+  const qPos = qKeys.indexOf(currentKey);
+  $("#ks-progress-label").textContent = sec === "end" ? "Hoàn tất" : qPos >= 0 ? `Câu ${qPos + 1}/${qKeys.length}` : "Giới thiệu sản phẩm";
   $("#ks-progress-pct").textContent = `${pct}%`;
   $("#ks-progress-fill").style.width = `${pct}%`;
+  const order = Object.keys(SECTION_META);
+  const at = sec === "end" ? order.length : order.indexOf(sec);
+  $("#ks-steps").innerHTML = order.map((k, i) => {
+    const state = i < at ? "is-done" : i === at ? "is-on" : "";
+    return `<li class="ks-step ${state}"><span class="ks-step__dot">${icon(i < at ? "check" : SECTION_META[k].icon)}</span><span class="ks-step__label">${esc(SECTION_META[k].short)}</span></li>`;
+  }).join("");
 }
 
 /* ---------- điều hướng ---------- */
@@ -125,7 +133,14 @@ function bottomNav({ back = true, cta = "Tiếp tục", onNext }) {
 function renderWelcome(card) {
   card.innerHTML = `
     <div class="ks-welcome">
-      <span class="tag tag--blue" style="width:fit-content">${esc(WELCOME.chip)}</span>
+      <figure class="ks-hero">
+        <img src="${esc(WELCOME.image)}" alt="${esc(WELCOME.imageAlt)}" width="1259" height="540">
+        <span class="ks-hero__chip">${esc(WELCOME.chip)}</span>
+        ${shieldArt("ks-hero__shield")}
+      </figure>
+      <ul class="ks-stats">${WELCOME.stats.map((st) => `
+        <li class="ks-stat"><span class="ks-stat__icon">${icon(st.icon)}</span><b>${esc(st.value)}</b><small>${esc(st.label)}</small></li>`).join("")}
+      </ul>
       <div>
         <h1 class="card__title">${esc(WELCOME.title)}</h1>
         <p class="card__sub">${esc(WELCOME.subtitle)}</p>
@@ -149,9 +164,10 @@ function renderProductIntro(card) {
       : selfVideo
       ? `<video class="ks-video" src="${esc(selfVideo)}" ${CONFIG.surveyVideoPoster ? `poster="${esc(CONFIG.surveyVideoPoster)}"` : ""} controls playsinline preload="metadata" title="Video tóm tắt Điểm Tựa Viện Phí"></video>`
       : `<div class="ks-video" style="display:grid;place-items:center;color:var(--navy);gap:6px;text-align:center;padding:16px"><span data-icon="play" style="width:40px;height:40px;opacity:.5"></span><small class="muted small">Video tóm tắt đang chuẩn bị - đọc 4 ý bên dưới nhé</small></div>`}
-    <div class="ks-points">
-      <ul class="dots">${PRODUCT_INTRO.points.map((p) => `<li>${esc(p)}</li>`).join("")}</ul>
-    </div>
+    ${layersArt(PRODUCT_INTRO.layers)}
+    <ul class="ks-points">${PRODUCT_INTRO.points.map((p) => `
+      <li><span class="ks-points__icon">${icon(p.icon)}</span><span>${esc(p.text)}</span></li>`).join("")}
+    </ul>
     <p class="src">${esc(PRODUCT_INTRO.note)}</p>`;
   if (vid) $("#ks-play").addEventListener("click", (e) => {
     e.currentTarget.outerHTML = `<div class="ks-video"><iframe src="https://www.youtube.com/embed/${esc(vid)}?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen title="Video tóm tắt"></iframe></div>`;
@@ -192,7 +208,9 @@ function renderQuestion(q, card) {
     if (isMulti && q.maxSelect) body += `<p class="ks-maxwarn ${lockedNow ? "is-on" : ""}" id="ks-maxwarn">Bạn đã chọn đủ ${q.maxSelect} đáp án. Chạm lại vào đáp án đã chọn nếu muốn đổi ý.</p>`;
   }
 
+  const meta = SECTION_META[q.section];
   card.innerHTML = `
+    <div class="ks-sec"><span class="ks-sec__icon">${icon(meta.icon)}</span><span>${esc(SECTION_LABEL[q.section])}</span></div>
     <p class="ks-q">${esc(qText)}</p>
     ${q.hint ? `<span class="ks-hint">${esc(q.hint)}</span>` : ""}
     ${feeNote}
@@ -338,10 +356,14 @@ function submit() {
 /* ---------- trang cảm ơn ---------- */
 function renderThanks(card) {
   card.innerHTML = `
-    <span class="tag tag--ok" style="width:fit-content">${esc(THANK_YOU.chip)}</span>
-    <h2 class="card__title" style="font-size:22px">${esc(THANK_YOU.title)}</h2>
-    <p class="muted">${esc(THANK_YOU.lead)}</p>
+    <div class="ks-done">
+      ${doneArt()}
+      <span class="tag tag--ok">${esc(THANK_YOU.chip)}</span>
+      <h2 class="card__title">${esc(THANK_YOU.title)}</h2>
+      <p class="muted">${esc(THANK_YOU.lead)}</p>
+    </div>
     <div class="ks-voucher">
+      <span class="ks-voucher__icon">${icon("gift")}</span>
       <p class="ks-voucher__title">Quà tặng của bạn</p>
       <p style="margin:0;font-size:14.5px;color:var(--navy-deep)">Mã ưu đãi đồ uống Highlands, The Coffee House, Ding Tea</p>
       <a class="btn btn--pink" style="justify-content:center" href="${ACTION_BUTTONS[0].url}" target="_blank" rel="noopener" data-act="1">Lấy mã ưu đãi</a>
@@ -363,6 +385,7 @@ function renderThanks(card) {
       </a>
     </div>
     <p class="ks-foot-note">${esc(THANK_YOU.footnote)}</p>
+    ${footLogos()}
     <p class="ks-foot-note">${esc(FOOTER_NOTE)}</p>`;
   $$("[data-act]", card).forEach((a) => a.addEventListener("click", () => logEvent(`nut_${a.dataset.act}`)));
   hydrateIcons(card);
@@ -372,12 +395,53 @@ function renderThanks(card) {
 
 function renderThanksMinor(card) {
   card.innerHTML = `
+    <div class="ks-done">${doneArt()}</div>
     <h2 class="card__title" style="font-size:22px">${esc(THANK_YOU_MINOR.title)}</h2>
     <p class="muted">${esc(THANK_YOU_MINOR.lead)}</p>
     <a class="btn btn--pink" style="justify-content:center" href="${ACTION_BUTTONS[0].url}" target="_blank" rel="noopener">Lấy mã ưu đãi</a>
     <p class="ks-foot-note">${esc(FOOTER_NOTE)}</p>`;
   $("#ks-bottom").innerHTML = "";
   $("#ks-bottom").style.display = "none";
+}
+
+/* ---------- hình minh họa SVG (chỉ trang trí, không có chữ) ---------- */
+function shieldArt(cls) {
+  return `<svg class="${cls}" viewBox="0 0 64 72" aria-hidden="true" focusable="false">
+    <path d="M32 3 59 13v20c0 18-11.5 30-27 36C16.5 63 5 51 5 33V13z" fill="#fff"/>
+    <path d="M32 9 53 17v16c0 14.5-9 24.5-21 29.5C20 57.5 11 47.5 11 33V17z" fill="var(--pink)"/>
+    <path d="M32 23v22M21 34h22" stroke="#fff" stroke-width="6" stroke-linecap="round"/>
+  </svg>`;
+}
+function layersArt(l) {
+  return `<div class="ks-layers" role="img" aria-label="${esc(`${l.title}: ${l.first.label} ${l.first.desc.toLowerCase()}, ${l.second.label} ${l.second.desc.toLowerCase()}`)}">
+    <div class="ks-layers__head"><span class="ks-layers__icon">${icon("doc")}</span>${esc(l.title)}</div>
+    <div class="ks-layers__bar"><span class="ks-layers__a"></span><span class="ks-layers__b"></span></div>
+    <div class="ks-layers__legend">
+      <div class="ks-layers__item ks-layers__item--a"><small>${esc(l.first.tag)}</small><b>${esc(l.first.label)}</b><span>${esc(l.first.desc)}</span></div>
+      <span class="ks-layers__plus" aria-hidden="true">+</span>
+      <div class="ks-layers__item ks-layers__item--b"><small>${esc(l.second.tag)}</small><b>${esc(l.second.label)}</b><span>${esc(l.second.desc)}</span></div>
+    </div>
+  </div>`;
+}
+function doneArt() {
+  return `<svg class="ks-done__art" viewBox="0 0 160 120" aria-hidden="true" focusable="false">
+    <circle cx="80" cy="60" r="46" fill="var(--pink-tint)"/>
+    <circle cx="80" cy="60" r="32" fill="var(--pink)"/>
+    <path d="m66 61 10 10 19-21" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M24 30v12M18 36h12" stroke="var(--sky)" stroke-width="3.5" stroke-linecap="round"/>
+    <path d="M138 78v10M133 83h10" stroke="var(--pink)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="132" cy="28" r="5" fill="var(--sky)" opacity=".7"/>
+    <circle cx="30" cy="90" r="4" fill="var(--pink-lite)"/>
+    <circle cx="146" cy="50" r="3" fill="var(--navy)" opacity=".25"/>
+    <circle cx="14" cy="62" r="3" fill="var(--navy)" opacity=".25"/>
+  </svg>`;
+}
+function footLogos() {
+  return `<div class="ks-foot-logos"><span class="brand-logos">
+    <img src="../assets/img/logo-mblife.png" alt="MB Life" width="80" height="26">
+    <span class="brand-logos__sep" aria-hidden="true"></span>
+    <img src="../assets/img/logo-accesstrade.png" alt="ACCESSTRADE" width="80" height="26">
+  </span></div>`;
 }
 
 /* ---------- khởi động ---------- */
