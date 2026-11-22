@@ -13,7 +13,7 @@ export const CONFIG = {
 
   // --- Trang khảo sát /khao-sat ---
   // URL web app sau khi deploy apps-script/khao-sat-webapp.gs (xem hướng dẫn trong file đó). Để trống thì trang vẫn chạy nhưng không gửi được dữ liệu.
-  surveyScriptUrl: "",
+  surveyScriptUrl: "https://script.google.com/macros/s/AKfycbyNb4zIn_UfUKLlWfUUQj3vpQItpSxlYS5nnsd1YKGFWjo388u98PCx1PxKr2l2ktjKHQ/exec",
   // ID video YouTube tóm tắt 45s dùng ở Phần C (chỉ lấy phần ID sau watch?v=). Để trống thì hiện ảnh tóm tắt 4 ý thay video.
   surveyVideoYoutubeId: "",
 };
