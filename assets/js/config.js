@@ -10,4 +10,10 @@ export const CONFIG = {
   productVideoUrl: "https://drive.google.com/file/d/1fiS0V7FsSo9kkP0Sc6dPWTItN_IpImA9/preview",
   // Link mua trực tiếp cho khách không phải publisher/CTV
   customerBuyUrl: "https://diemtuavienphi.mblife.vn/?utm_source=accesstrade&aff_sid=H40JKAgyQbI6Zpn6OeeYlKCBXlcIYLc4IirgH21794554316&atnct1=4ecb679fd35dcfd0f0894c399590be1a&atnct2=H40JKAgyQbI6Zpn6OeeYlKCBXlcIYLc4IirgH21794554316&atnct3=GU6Go000f1q0048xk",
+
+  // --- Trang khảo sát /khao-sat ---
+  // URL web app sau khi deploy apps-script/khao-sat-webapp.gs (xem hướng dẫn trong file đó). Để trống thì trang vẫn chạy nhưng không gửi được dữ liệu.
+  surveyScriptUrl: "https://script.google.com/macros/s/AKfycbyNb4zIn_UfUKLlWfUUQj3vpQItpSxlYS5nnsd1YKGFWjo388u98PCx1PxKr2l2ktjKHQ/exec",
+  // ID video YouTube tóm tắt 45s dùng ở Phần C (chỉ lấy phần ID sau watch?v=). Để trống thì hiện ảnh tóm tắt 4 ý thay video.
+  surveyVideoYoutubeId: "",
 };
