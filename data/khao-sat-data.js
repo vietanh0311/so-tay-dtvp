@@ -17,13 +17,13 @@ export const FEE_TABLE = {
 
 export const WELCOME = {
   chip: "Khảo sát cộng đồng",
-  title: "Nằm viện có BHYT thì còn phải trả bao nhiêu?",
+  title: 'Bạn có bao giờ thắc mắc rằng: "Nếu nằm viện có BHYT thì còn phải trả bao nhiêu?"',
   subtitle: "Chia sẻ 3 phút, nhận mã ưu đãi đồ uống",
-  body: "Chào bạn, đây là khảo sát của Cộng đồng hỗ trợ chương trình Điểm Tựa Viện Phí. Bọn mình muốn biết mọi người đang lo gì về viện phí và nghĩ gì về loại bảo hiểm đi kèm BHYT.",
+  body: "Chào bạn, đây là khảo sát của Cộng đồng hỗ trợ chương trình Điểm Tựa Viện Phí. Bọn mình muốn biết mọi người đang lo gì về viện phí và nghĩ gì về loại bảo hiểm bổ sung đi kèm BHYT.",
   points: [
-    "Toàn bộ là câu chọn sẵn, mất khoảng 3 phút, không phải gõ nhiều.",
-    "Làm xong bạn lấy được mã ưu đãi Highlands, The Coffee House, Ding Tea.",
-    "Thông tin chỉ dùng để tổng hợp, không dùng để gọi chào bán.",
+    "Toàn bộ là câu trắc nghiệm dễ, sẽ mất khoảng 3 phút, không cần gõ dài.",
+    "Cộng đồng có 1 phần quà nho nhỏ là 1 số voucher đồ uống Highlands, The Coffee House, Ding Tea để cảm ơn bạn, voucher sẽ hiện ở cuối sau khi làm xong nhé.",
+    "Thông tin chỉ dùng để hỗ trợ phân tích và tổng hợp, tuyệt đối không liên hệ hay chào bán.",
   ],
   cta: "Bắt đầu",
 };
