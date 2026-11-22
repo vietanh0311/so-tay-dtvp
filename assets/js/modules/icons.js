@@ -11,6 +11,10 @@ const P = {
   shield: '<path d="M12 3 5 6v6c0 4 3 7 7 9 4-2 7-5 7-9V6z"/><path d="M12 9v6M9 12h6"/>',
   hospital: '<path d="M4 21V8l8-4 8 4v13z"/><path d="M12 9v6M9 12h6M10 21v-3h4v3"/>',
   zalo: '<path d="M4 5h16v11H9l-5 4z"/><circle cx="9" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="10" r="1" fill="currentColor" stroke="none"/><circle cx="15" cy="10" r="1" fill="currentColor" stroke="none"/>',
+  gift: '<rect x="4" y="9.5" width="16" height="10.5" rx="1.5"/><path d="M4 9.5h16M12 9.5v10.5M8.2 9.5c-1.6 0-3.2-1-3.2-2.8C5 4.9 6.3 4 7.6 4 9.7 4 11.2 6.1 12 9.5c.8-3.4 2.3-5.5 4.4-5.5 1.3 0 2.6.9 2.6 2.7 0 1.8-1.6 2.8-3.2 2.8"/>',
+  share: '<circle cx="6" cy="12" r="2.3"/><circle cx="18" cy="5.5" r="2.3"/><circle cx="18" cy="18.5" r="2.3"/><path d="M8 10.8 16 6.9M8 13.2 16 17.1"/>',
+  check: '<path d="M4 13l4.5 4.5L20 6"/>',
+  arrow: '<path d="M5 12h13M13 6l6 6-6 6"/>',
 };
 export function icon(name) {
   const p = P[name];
