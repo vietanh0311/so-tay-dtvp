@@ -198,8 +198,17 @@ export const THANK_YOU_MINOR = {
 export const ACTION_BUTTONS = [
   { id: 1, icon: "gift", label: "Lấy mã ưu đãi", desc: "Highlands, The Coffee House, Ding Tea", url: "https://dealverse.eps.io.vn/" },
   { id: 2, icon: "shield", label: "Tìm hiểu và tham gia Điểm Tựa Viện Phí", desc: "Quyền lợi, biểu phí, đăng ký trực tiếp", url: "https://diemtuavienphi.mblife.vn/?utm_source=accesstrade&aff_sid=Tpri7SfQyIrUXcDN57hB8zRqATDnFrKHmszTkJ1795327672&atnct1=4ecb679fd35dcfd0f0894c399590be1a&atnct2=Tpri7SfQyIrUXcDN57hB8zRqATDnFrKHmszTkJ1795327672&atnct3=LTlZY000f1q0048xk" },
-  { id: 3, icon: "zalo", label: "Vào nhóm Zalo hỏi đáp", desc: "Hỏi trực tiếp về sản phẩm", url: "https://zalo.me/g/7l9g8mjir6soitvlfqr4" },
+  { id: 3, icon: "zalo", label: "Vào nhóm Zalo nhận kết quả khảo sát và hỏi đáp viện phí", desc: "Nhóm chia sẻ cách dùng BHYT khi nằm viện, kết quả khảo sát sẽ gửi trong nhóm sau 04/12.", url: "https://zalo.me/g/7l9g8mjir6soitvlfqr4" },
   { id: 4, icon: "share", label: "Giới thiệu cho người quen", desc: "Nhận hoa hồng khi người quen tham gia", url: "https://camnangdiemtuavienphi.accesstrade.work/" },
 ];
+
+// Khối chia sẻ ở trang cảm ơn. Bấm copy ghi sự kiện "click_share" vào sheet Sự kiện.
+export const SHARE_BOX = {
+  title: "Chia sẻ khảo sát cho bố mẹ, người quen",
+  url: "https://camnangdiemtuavienphi.accesstrade.work/khao-sat/?src=share",
+  button: "Copy link",
+  done: "Đã copy",
+  manualHint: "Máy chưa cho copy tự động. Link đã được bôi đen, bấm giữ vào ô link rồi chọn Sao chép.",
+};
 
 export const FOOTER_NOTE = "Cộng đồng hỗ trợ triển khai chương trình Điểm Tựa Viện Phí do ACCESSTRADE vận hành. Điểm Tựa Viện Phí là sản phẩm bảo hiểm của MB Life. Thông tin khảo sát chỉ dùng để tổng hợp; số Zalo (nếu có) chỉ dùng để liên hệ phỏng vấn.";

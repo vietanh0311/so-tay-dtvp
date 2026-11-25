@@ -3,7 +3,7 @@ import { $, $$, esc, vnd, store } from "./modules/util.js";
 import { icon, hydrateIcons } from "./modules/icons.js";
 import {
   QUESTIONS, FEE_TABLE, WELCOME, PRODUCT_INTRO, SECTION_LABEL, SECTION_META,
-  THANK_YOU, THANK_YOU_MINOR, ACTION_BUTTONS, FOOTER_NOTE,
+  THANK_YOU, THANK_YOU_MINOR, ACTION_BUTTONS, SHARE_BOX, FOOTER_NOTE,
 } from "../../data/khao-sat-data.js";
 
 const QUESTION_MAP = Object.fromEntries(QUESTIONS.map((q) => [q.id, q]));
@@ -368,29 +368,65 @@ function renderThanks(card) {
       <p style="margin:0;font-size:14.5px;color:var(--navy-deep)">Mã ưu đãi đồ uống Highlands, The Coffee House, Ding Tea</p>
       <a class="btn btn--pink" style="justify-content:center" href="${ACTION_BUTTONS[0].url}" target="_blank" rel="noopener" data-act="1">Lấy mã ưu đãi</a>
     </div>
+    ${actionLink(ACTION_BUTTONS[2], "ks-action--zalo")}
     <p class="eyebrow" style="margin-top:4px">Dành riêng cho bạn</p>
-    <a class="ks-action" href="${ACTION_BUTTONS[1].url}" target="_blank" rel="noopener" data-act="2">
-      <span class="ks-action__icon">${icon(ACTION_BUTTONS[1].icon)}</span>
-      <span><b>${esc(ACTION_BUTTONS[1].label)}</b><small>${esc(ACTION_BUTTONS[1].desc)}</small></span>
-      <span class="ks-action__go">${icon("arrow")}</span>
-    </a>
-    <div class="ks-grid2">
-      <a class="ks-action" href="${ACTION_BUTTONS[2].url}" target="_blank" rel="noopener" data-act="3">
-        <span class="ks-action__icon">${icon(ACTION_BUTTONS[2].icon)}</span>
-        <span><b>${esc(ACTION_BUTTONS[2].label)}</b><small>${esc(ACTION_BUTTONS[2].desc)}</small></span>
-      </a>
-      <a class="ks-action" href="${ACTION_BUTTONS[3].url}" target="_blank" rel="noopener" data-act="4">
-        <span class="ks-action__icon">${icon(ACTION_BUTTONS[3].icon)}</span>
-        <span><b>${esc(ACTION_BUTTONS[3].label)}</b><small>${esc(ACTION_BUTTONS[3].desc)}</small></span>
-      </a>
+    ${actionLink(ACTION_BUTTONS[1])}
+    ${actionLink(ACTION_BUTTONS[3])}
+    <div class="ks-share">
+      <p class="ks-share__title"><span class="ks-share__icon">${icon("share")}</span>${esc(SHARE_BOX.title)}</p>
+      <div class="ks-share__row">
+        <input class="ks-share__url" id="ks-share-url" type="text" value="${esc(SHARE_BOX.url)}" readonly aria-label="Link khảo sát để chia sẻ">
+        <button class="btn btn--pink btn--sm ks-share__btn" type="button" id="ks-share-copy">${esc(SHARE_BOX.button)}</button>
+      </div>
+      <p class="ks-share__hint" id="ks-share-hint" role="status">${esc(SHARE_BOX.manualHint)}</p>
     </div>
     <p class="ks-foot-note">${esc(THANK_YOU.footnote)}</p>
     ${footLogos()}
     <p class="ks-foot-note">${esc(FOOTER_NOTE)}</p>`;
   $$("[data-act]", card).forEach((a) => a.addEventListener("click", () => logEvent(`nut_${a.dataset.act}`)));
+  $("#ks-share-copy").addEventListener("click", (e) => {
+    copyShareLink(e.currentTarget, $("#ks-share-url"));
+    logEvent("click_share");
+  });
   hydrateIcons(card);
   $("#ks-bottom").innerHTML = "";
   $("#ks-bottom").style.display = "none";
+}
+
+// Copy link chia sẻ. execCommand chạy trước, ngay trong lượt bấm, vì trình duyệt trong Zalo/Facebook
+// và iOS cũ hay chặn navigator.clipboard. Không copy được thì bôi đen sẵn ô link và hiện gợi ý.
+function copyShareLink(btn, input) {
+  const label = SHARE_BOX.button;
+  const hint = $("#ks-share-hint");
+  const done = () => {
+    hint.classList.remove("is-on");
+    btn.textContent = SHARE_BOX.done;
+    btn.classList.add("is-done");
+    clearTimeout(btn._t);
+    btn._t = setTimeout(() => { btn.textContent = label; btn.classList.remove("is-done"); }, 1800);
+  };
+  const manual = () => {
+    input.focus({ preventScroll: true });
+    input.setSelectionRange(0, input.value.length);
+    hint.classList.add("is-on");
+  };
+  let copied = false;
+  try {
+    input.focus({ preventScroll: true });
+    input.setSelectionRange(0, input.value.length);
+    copied = document.execCommand("copy");
+  } catch { copied = false; }
+  if (copied) { input.setSelectionRange(0, 0); input.blur(); return done(); }
+  if (navigator.clipboard?.writeText) navigator.clipboard.writeText(SHARE_BOX.url).then(done, manual);
+  else manual();
+}
+
+function actionLink(b, extra = "") {
+  return `<a class="ks-action ${extra}" href="${b.url}" target="_blank" rel="noopener" data-act="${b.id}">
+      <span class="ks-action__icon">${icon(b.icon)}</span>
+      <span class="ks-action__text"><b>${esc(b.label)}</b><small>${esc(b.desc)}</small></span>
+      <span class="ks-action__go">${icon("arrow")}</span>
+    </a>`;
 }
 
 function renderThanksMinor(card) {
